@@ -8,4 +8,8 @@ def test_index():
 
 def test_filter():
     response = tester.get('/filter/test_swear')
-    print(response.data)
+    assert response.data == b'----------'
+
+def test_wordlist():
+    response = tester.get('/wordlist')
+    assert response.status_code == 200
