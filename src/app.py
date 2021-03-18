@@ -10,7 +10,8 @@ app = Flask(__name__)
 # app.config[''] = ''
 # app.config[''] = ''
 
-filter_words = json.load(open(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'wordlist.json')))
+wordlist_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'wordlist.json')
+filter_words = json.load(open(wordlist_path))
 
 def filter_string(msg, sec_run=False):
     space_indexes = [m.start() for m in re.finditer(' ', msg)]
