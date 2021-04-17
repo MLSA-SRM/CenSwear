@@ -1,14 +1,4 @@
-import random
-import re
-import json
-import os
-
-from flask import Flask, redirect, render_template, request
-
-app = Flask(__name__)
-
-# app.config[''] = ''
-# app.config[''] = ''
+from . import app
 
 wordlist_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'wordlist.json')
 filter_words = json.load(open(wordlist_path))
