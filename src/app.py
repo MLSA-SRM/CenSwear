@@ -1,40 +1,57 @@
-import random
-import re
 import json
 import os
+import random
+import re
 
 from flask import Flask, redirect, render_template, request
 
 app = Flask(__name__)
 
-# app.config[''] = ''
-# app.config[''] = ''
+os.chdir(os.path.abspath(
+    os.path.dirname(__file__)))
 
-wordlist_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'wordlist.json')
+wordlist_path = os.path.join(os.path.abspath(
+    os.path.dirname(__file__)), 'wordlist.json')
 filter_words = json.load(open(wordlist_path))
 
+censor_symbols = '$#!*'
+
+
 def filter_string(msg, sec_run=False):
-    space_indexes = [m.start() for m in re.finditer(' ', msg)]
     if sec_run:
+        space_indexes = [m.start() for m in re.finditer(' ', msg)]
         msg = msg.replace(' ', '')
-    for word in filter_words:
-        if word.endswith(r'\w*') and sec_run:
-            continue
-        search = re.search(r'\s*{}'.format(word), msg, re.IGNORECASE)
-        if search:
-            print(msg, search.group(), word)
-            cen = ''.join(
-                random.choice(list('-')) for a in range(len(search.group())))
-            msg = re.sub(r'({})'.format(word),
-                         cen,
-                         msg,
-                         flags=re.IGNORECASE)
-    # print(msg)
-    if sec_run:
+        for word in filter_words:
+            if word.endswith(r'\w*') and sec_run:
+                continue
+            search = re.search(r'\s*{}'.format(word), msg, re.IGNORECASE)
+            if search:
+                print('Run2', msg, search.group(), word)
+                cen = ''.join(
+                    random.choice(censor_symbols) for a in range(len(search.group())))
+                msg = re.sub(r'({})'.format(word),
+                             cen,
+                             msg,
+                             flags=re.IGNORECASE)
         for i in space_indexes:
             msg = msg[:i] + ' ' + msg[i:]
+
         return msg
+
+    # print(msg)
     else:
+        censor_indexes = []
+        for word in filter_words:
+            search = re.search(r'\s*({})'.format(word), msg, re.IGNORECASE)
+            if search:
+                print('Run1', msg, search.group(), word,
+                      search.start(1), search.end(1))
+                censor_indexes.append((search.start(1), search.end(1)))
+        for i in censor_indexes:
+            msg = msg[:i[0]] + ''.join(random.choice(censor_symbols)
+                                       for c in range(i[1]-i[0])) + msg[i[1]:]
+
+        print('fff', msg)
         return filter_string(msg, sec_run=True)
 
 
