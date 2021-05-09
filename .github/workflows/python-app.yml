@@ -66,4 +66,4 @@ jobs:
         with:
           app-name: 'profanity-filter-api'
           slot-name: 'production'
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_c084e5f18a5344118c178155caa95f00 }}
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_641bfef263604f5c88f3cecf62951676 }}
