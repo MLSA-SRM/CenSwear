@@ -39,3 +39,31 @@ jobs:
     - name: Test with pytest
       run: |
         python -m pytest
+    - name: Upload artifact for deployment jobs
+      uses: actions/upload-artifact@v2
+      with:
+        name: python-app
+        path: |
+          . 
+          !venv/
+          
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v2
+        with:
+          name: python-app
+          path: .
+      
+      - name: 'Deploy to Azure Web App'
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'profanity-filter-api'
+          slot-name: 'production'
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_9cf655578122422ebe405501bc15a506 }}
