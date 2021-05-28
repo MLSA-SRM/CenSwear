@@ -1,6 +1,7 @@
-from src.app import app, wordlist_path
+from src.app import app, wordlist_path, censor_symbols
 import json
 import os
+import re
 tester = app.test_client()
 
 def test_index():
@@ -11,7 +12,7 @@ def test_index():
 def test_filter():
     response = tester.get('/filter/test_swear') #Test if swear words are getting censored as expected.
     assert response.status_code == 200
-    assert response.data == b'----------'
+    assert re.match(f'[{censor_symbols}]*', str(response.data))
 
     response = tester.get('/filter/clean_text') #Test for clean strings.
     assert response.status_code == 200
@@ -19,7 +20,7 @@ def test_filter():
 
     response = tester.get('/filter/test_swe ar') #Test for secondry run where whitespaces are ignored.
     assert response.status_code == 200
-    assert response.data == b'-------- --'
+    assert re.match(f'[{censor_symbols} ]*', str(response.data))
 
 def test_wordlist():
     response = tester.get('/wordlist')
