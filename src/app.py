@@ -12,6 +12,7 @@ os.chdir(os.path.abspath(
 
 wordlist_path = os.path.join(os.path.abspath(
     os.path.dirname(__file__)), 'wordlist.json')
+
 filter_words = json.load(open(wordlist_path))
 
 censor_symbols = '$#!*'
