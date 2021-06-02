@@ -1,7 +1,8 @@
-import json
 import os
+from dotenv import load_dotenv
 import random
 import re
+import requests
 
 from flask import Flask, redirect, render_template, request
 
@@ -10,10 +11,10 @@ app = Flask(__name__)
 os.chdir(os.path.abspath(
     os.path.dirname(__file__)))
 
-wordlist_path = os.path.join(os.path.abspath(
-    os.path.dirname(__file__)), 'wordlist.json')
+load_dotenv()
 
-filter_words = json.load(open(wordlist_path))
+WORDLIST_URL = os.environ['WORDLIST_URL']
+filter_words = requests.get(WORDLIST_URL).json()
 
 censor_symbols = '$#!*'
 
@@ -45,14 +46,14 @@ def filter_string(msg, sec_run=False):
         for word in filter_words:
             search = re.search(r'\s*({})'.format(word), msg, re.IGNORECASE)
             if search:
-                print('Run1', msg, search.group(), word,
+                print('Run_1 Start:', msg, search.group(), word,
                       search.start(1), search.end(1))
                 censor_indexes.append((search.start(1), search.end(1)))
         for i in censor_indexes:
             msg = msg[:i[0]] + ''.join(random.choice(censor_symbols)
                                        for c in range(i[1]-i[0])) + msg[i[1]:]
 
-        print('fff', msg)
+        print('Run_1 End:', msg)
         return filter_string(msg, sec_run=True)
 
 
