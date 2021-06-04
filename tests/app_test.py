@@ -1,7 +1,8 @@
-from src.app import app, wordlist_path, censor_symbols
+from src.app import app, WORDLIST_URL, censor_symbols
 import json
 import os
 import re
+import requests
 tester = app.test_client()
 
 def test_index():
@@ -24,6 +25,6 @@ def test_filter():
 
 def test_wordlist():
     response = tester.get('/wordlist')
-    filter_words = json.load(open(wordlist_path))
+    filter_words = requests.get(WORDLIST_URL).json()
     assert response.status_code == 200
     assert all([i.encode() in response.data for i in filter_words])
