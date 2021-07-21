@@ -17,7 +17,6 @@ WORDLIST_URL = os.environ['WORDLIST_URL']
 filter_words = requests.get(WORDLIST_URL).json()
 
 censor_symbols = '$#!*'
-#gg
 
 def filter_string(msg, sec_run=False):
     if sec_run:
