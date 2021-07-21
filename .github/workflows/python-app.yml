@@ -13,7 +13,7 @@ jobs:
 
   build:
     env:
-      WORDLIST_URL: ${{ secrets.WORDLIST_URL }}
+      WORDLIST_URL: ${{ env.WORDLIST_URL }}
 
     runs-on: ubuntu-latest
 
