@@ -18,7 +18,6 @@ filter_words = requests.get(WORDLIST_URL).json()
 
 censor_symbols = '$#!*'
 
-
 def filter_string(msg, sec_run=False):
     if sec_run:
         space_indexes = [m.start() for m in re.finditer(' ', msg)]

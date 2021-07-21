@@ -51,6 +51,7 @@ jobs:
           !venv/
           
   deploy:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     needs: build
     environment:
@@ -69,4 +70,4 @@ jobs:
         with:
           app-name: 'profanity-filter-api'
           slot-name: 'production'
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_9cf655578122422ebe405501bc15a506 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9CF655578122422EBE405501BC15A506 }}
