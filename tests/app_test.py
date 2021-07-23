@@ -8,7 +8,7 @@ tester = app.test_client()
 def test_index():
     response = tester.get("/", content_type="html/text")
     assert response.status_code == 200
-    assert b"This is working" in response.data
+    assert b"You curse, we censor!" in response.data
 
 def test_filter():
     response = tester.get('/filter/test_swear') #Test if swear words are getting censored as expected.
