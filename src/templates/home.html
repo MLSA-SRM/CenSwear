@@ -11,7 +11,6 @@
                 <h1>How it works</h1>
                 <img src="static/assets/steps-illustration.svg" class="hero-steps-desktop-img" alt="step by step illustration on how to try out the demo">
                 <img src="static/assets/steps-illustration-mobile.svg" class="hero-steps-img" alt="step by step illustration on how to try out the demo">
-                <!--Add the demo-text-box here-->
 
             </div>
         </div>
@@ -20,8 +19,24 @@
 <section class="demo-area">
     <div class="demo-box">
 
-        <input type="text" class="demo-input" placeholder="Enter some text here.. " />
-        <input type="image" src="static/assets/button.svg" />
+        <input id="demo-input" type="text" class="demo-input" placeholder="Enter some text here.. " />
+        <input id="demo-submit" type="image" src="static/assets/button.svg" />
+
+        <script>
+            var myform = document.getElementById('demo-submit');
+            var demo_input = document.getElementById('demo-input')
+            myform.onclick = function() {
+                fetch(window.location.origin + '/filter/' + demo_input.value)
+                    .then((response) => {
+                        return response.text();
+                    })
+                    .then((data) => {
+                        console.log(data);
+                        demo_input.value = data
+                    });
+                myform.submit();
+            };
+        </script>
     </div>
 </section>
 <section class="features-section ">
