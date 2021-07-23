@@ -80,7 +80,8 @@ section {
     text-align: center;
     letter-spacing: .495em;
     text-transform: uppercase;
-    color: #858585
+    color: #858585;
+    padding: 10px;
 }
 
 .left-col h1 {
@@ -91,7 +92,7 @@ section {
     text-align: center;
     line-height: 48px;
     color: #eef5f8;
-    margin: 24px 0
+    margin: 20px 0
 }
 
 .left-col h2 {
@@ -122,8 +123,8 @@ section {
 }
 
 .left-col .hero-cta .hero-steps-img {
-    width: 262px;
-    height: 349px
+    width: 170px;
+    padding: 20px;
 }
 
 .features-section .container ul.features {
@@ -238,7 +239,7 @@ input:focus {
 
 @media only screen and (min-width:768px) {
     body {
-        background-image: url(../assets/BG-Patterns_Recovered_Desktop-background-final.png);
+        background-image: url(../assets/Mobile-BG-1.png);
         height: 100%;
         background-position: center;
         background-repeat: no-repeat;
@@ -340,7 +341,8 @@ input:focus {
         letter-spacing: .495em;
         text-transform: uppercase;
         color: #858585;
-        margin-top: 59px
+        margin-top: 30px;
+        padding: 10px;
     }
     .left-col h1 {
         font-family: Montserrat;
@@ -350,7 +352,7 @@ input:focus {
         line-height: 77px;
         text-align: center;
         color: #eef5f8;
-        margin: 69px 0
+        margin: 20px 0
     }
     .left-col h2 {
         font-family: Montserrat;
@@ -376,7 +378,7 @@ input:focus {
         display: block;
         margin-left: auto;
         margin-right: auto;
-        width: 50%
+        width: 800px;
     }
     .left-col .hero-cta .hero-steps-img {
         display: none
