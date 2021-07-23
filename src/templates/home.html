@@ -1,54 +1,51 @@
-{% extends 'base.html' %}
-
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <section class="hero">
     <div class="container">
         <div class="left-col">
-            <p class="overline">A Python based profanity filterer</p>
-            <h1>You curse, we sensor!</h1>
-            <h2>CenSwear is a simple, free, and reliable language understanding API designed to recognize and remove
-                profanity, obscenity, and other unwanted text. It’s a technology you can swear by!</h2>
+            <p class="overline">A Python based profanity filter</p>
+            <h1>You curse, we censor!</h1>
+            <h2>CenSwear is a simple, free, and reliable language understanding API designed to recognize and remove profanity, obscenity, and other unwanted text. It’s a technology you can swear by!</h2>
 
             <div class="hero-cta">
                 <h1>How it works</h1>
-                <img src="static/assets/steps-illustration.svg" class="hero-steps-desktop-img"
-                    alt="step by step illustration on how to try out the demo">
-                <img src="static/assets/steps-illustration-mobile.svg" class="hero-steps-img"
-                    alt="step by step illustration on how to try out the demo">
+                <img src="static/assets/steps-illustration.svg" class="hero-steps-desktop-img" alt="step by step illustration on how to try out the demo">
+                <img src="static/assets/steps-illustration-mobile.svg" class="hero-steps-img" alt="step by step illustration on how to try out the demo">
                 <!--Add the demo-text-box here-->
+
             </div>
         </div>
     </div>
 </section>
+<section class="demo-area">
+    <div class="demo-box">
 
-<section class="features-section">
-    <div class="container">
-        <ul class="features">
-            <li class="card-1-message">
-                <img src="static/assets/message-alert.svg" alt="Feature 1 Profanity detection">
+        <input type="text" class="demo-input" placeholder="Enter some text here.. " />
+        <input type="image" src="static/assets/button.svg" />
+    </div>
+</section>
+<section class="features-section ">
+    <div class="container ">
+        <ul class="features ">
+            <li class="card-1-message ">
+                <img src="static/assets/message-alert.svg " alt="Feature 1 Profanity detection ">
                 <h1>Profanity detection and filtering from texts</h1>
-                <p class="card-feature-info">The API detects and censors swear words and profanities from chat and text
-                    messages based on an internal profanity list.</p>
+                <p class="card-feature-info ">The API detects and censors swear words and profanities from chat and text messages based on an internal profanity list.</p>
             </li>
-            <li class="card-2-mail">
-                <img src="static/assets/mail-alert.svg" alt="Feature 2 Real-time mail censoring">
+            <li class="card-2-mail ">
+                <img src="static/assets/mail-alert.svg " alt="Feature 2 Real-time mail censoring ">
                 <h1>Real-time censoring of expletives</h1>
-                <p class="card-feature-info">The web service also provides real-time redaction of swear words while
-                    emails and documents are being typed.</p>
+                <p class="card-feature-info ">The web service also provides real-time redaction of swear words while emails and documents are being typed.</p>
             </li>
-            <li class="card-3-reliability">
-                <img src="static/assets/care.svg" alt="Feature 3 Reliabilty and Accuracy">
+            <li class="card-3-reliability ">
+                <img src="static/assets/care.svg " alt="Feature 3 Reliabilty and Accuracy ">
                 <h1>Fast, accurate, reliable</h1>
-                <p class="card-feature-info">CenSwear ensures that not one single offensive message slips through its
-                    filters, creating a safe and productive environment for the users.</p>
+                <p class="card-feature-info ">CenSwear ensures that not one single offensive message slips through its filters, creating a safe and productive environment for the users.</p>
             </li>
-            <li class="card-4-customer">
-                <img src="static/assets/customer.svg" alt="Feature 4 Customer care and fast response">
+            <li class="card-4-customer ">
+                <img src="static/assets/customer.svg " alt="Feature 4 Customer care and fast response ">
                 <h1>Time Saving</h1>
-                <p class="card-feature-info">We’ve designed CenSwear in a way that helps eliminate the nuisance of having
-                    to maintain your own profanity database.</p>
+                <p class="card-feature-info ">We’ve designed CenSwear in a way that helps eliminate the nuisance of having to maintain your own profanity database.</p>
             </li>
         </ul>
     </div>
