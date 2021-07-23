@@ -8,8 +8,7 @@ from flask import Flask, redirect, render_template, request
 
 app = Flask(__name__)
 
-os.chdir(os.path.abspath(
-    os.path.dirname(__file__)))
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 load_dotenv()
 
@@ -58,7 +57,7 @@ def filter_string(msg, sec_run=False):
 
 @app.route('/')
 def index():
-    return render_template('landingPage.html')
+    return render_template('home.html')
 
 
 @app.route('/wordlist')
