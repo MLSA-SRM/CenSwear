@@ -8,7 +8,7 @@ from flask import Flask, redirect, render_template, request
 
 app = Flask(__name__)
 
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
+# os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 load_dotenv()
 
