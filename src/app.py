@@ -70,8 +70,5 @@ def filter(string):
     return filter_string(string)
 
 
-app.add_url_rule('/favicon.ico',
-                 redirect_to=url_for('static', filename='assets/favicon.ico'))
-
 if __name__ == "__main__":
     app.run(debug=True)
