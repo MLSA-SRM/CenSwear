@@ -369,9 +369,9 @@ input:focus {
         font-family: Montserrat;
         font-style: normal;
         font-weight: 600;
-        font-size: 48px;
+        font-size: 40px;
         line-height: 58px;
-        margin: 21px 0;
+        margin: 21px 0px 10px 0px;
         color: #eef5f8
     }
     .left-col .hero-cta .hero-steps-desktop-img {
