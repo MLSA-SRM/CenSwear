@@ -28,6 +28,7 @@ jobs:
       with:
         platform: python
         platform-version: '3.8'
+        WORDLIST_URL: ${{ secrets.WORDLIST_URL }}
 
     - name: Run Azure webapp deploy action using publish profile credentials
       uses: azure/webapps-deploy@v2
