@@ -35,5 +35,6 @@ jobs:
       with:
         app-name: profanity-filter-mlsa
         slot-name: Production
+        app-settings-json: '[{"name": "SCM_DO_BUILD_DURING_DEPLOYMENT","value": "1","slotSetting": false},{"name": "WORDLIST_URL","value": "{{ secrets.WORDLIST_URL }}","slotSetting": false}]'
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B3D4715C8EB74C39B6E85A23888B3B77 }}
 
