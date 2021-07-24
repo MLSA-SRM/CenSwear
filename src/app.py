@@ -4,7 +4,7 @@ import random
 import re
 import requests
 
-from flask import Flask, redirect, render_template, request
+from flask import Flask, redirect, render_template, request, url_for
 
 app = Flask(__name__)
 
