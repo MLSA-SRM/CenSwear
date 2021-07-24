@@ -65,7 +65,7 @@ def wordlist():
     return '<br>'.join(filter_words)
 
 
-@app.route('/filter/<string>')
+@app.route('/filter/<string>',methods=['GET','POST'])
 def filter(string):
     return filter_string(string)
 
