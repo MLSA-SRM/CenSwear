@@ -17,24 +17,32 @@
     </div>
 </section>
 <section class="demo-area">
+    <p id="demo-input-error" style="color: red; margin: 0 auto; text-align: center;"></p><br>
     <div class="demo-box">
-
         <input id="demo-input" type="text" class="demo-input" placeholder="Enter some text here.. " />
         <input id="demo-submit" type="image" src="static/assets/button.svg" />
 
         <script>
             var myform = document.getElementById('demo-submit');
-            var demo_input = document.getElementById('demo-input')
+            var demo_input = document.getElementById('demo-input');
+            var demo_input_error = document.getElementById('demo-input-error');
             myform.onclick = function() {
-                fetch(window.location.origin + '/filter/' + demo_input.value)
-                    .then((response) => {
-                        return response.text();
-                    })
-                    .then((data) => {
-                        console.log(data);
-                        demo_input.value = data
-                    });
-                myform.submit();
+                if(demo_input.value !== ""){
+                    demo_input_error.innerHTML = "";
+                    fetch(window.location.origin + '/filter/' + escape(demo_input.value))
+                        .then((response) => {
+                            return response.text();
+                        })
+                        .then((data) => {
+                            console.log(data);
+                            demo_input.value = data
+                        });
+                    myform.submit();
+                }
+                else
+                {
+                    demo_input_error.innerHTML = "Please enter some value !";
+                }
             };
         </script>
     </div>
