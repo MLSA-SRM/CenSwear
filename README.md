@@ -46,7 +46,7 @@ Project Organization
     |
     └── src
         ├── __init__.py 
-        ├── app.py <- Main python file containig the flask app
+        ├── app.py         <- Main python file containig the flask app
         ├── templates
         |   ├── base.html
         |   └── home.html
