@@ -34,44 +34,25 @@ Project Organization
 ------------
 
     ├── README.md          <- The top-level README for developers using this project.
-    ├── requirements.txt   <- contains all the librabry used
-    ├── src
-    |   ├── __init__.py 
-    │   ├── app.py         <- Main python file containig the flask app
-    │   ├── static
-    |       ├── app.py         <- Main python file containig the flask app 
-    │   └── raw            <- The original, immutable data dump
     │
-    ├── guide              <- A set of markdown files with documented best practices, guidelines and rools for collaborative projects
+    ├── requirements.txt   <- The requirements file for reproducing the environment
     │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
-    │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g
-    │                         `1.0-jqp-initial-data-exploration`
-    │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
-    │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment
-    │
-    └── da-project         <- Source code for use in this project.
-        │
-        ├── data           <- Scripts to download or generate data
-        │   └── make_dataset.py
-        │
-        ├── features       <- Scripts to turn raw data into features for modeling
-        │   └── build_features.py
-        │
-        ├── models         <- Scripts to train models and then use trained models to make
-        │   │                 predictions
-        │   ├── predict_model.py
-        │   └── train_model.py
-        │
-        └── visualization  <- Scripts to create exploratory and results oriented visualizations
-            └── visualize.py
+    ├── test
+    |  └── app_test.py     <- The python script for testing the app
+    |
+    ├── LICENSE
+    |
+    ├── Procfile           <- for heroku deployment
+    |
+    └── src
+        ├── __init__.py 
+        ├── app.py <- Main python file containig the flask app
+        ├── templates
+        |   ├── base.html
+        |   └── home.html
+        └── static
+            ├── assets     <- contains svg images and backgrounds 
+            └── css        <- The css files for the web app
 
 
 ## Contributors:
