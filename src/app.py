@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 import random
 import re
 import requests
+import time 
 from urllib.parse import unquote
 
 from flask import Flask, redirect, render_template, request, url_for
@@ -68,7 +69,11 @@ def wordlist():
 
 @app.route('/filter/<string>',methods=['GET','POST'])
 def filter(string):
-    return filter_string(unquote(string))
+    if request.args.get('delay'):
+        time.sleep(float(request.args.get('delay')))
+        return filter_string(unquote(string))
+    else:
+        return filter_string(unquote(string))
 
 
 if __name__ == "__main__":

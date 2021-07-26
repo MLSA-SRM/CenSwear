@@ -19,31 +19,44 @@
 <section class="demo-area">
     <p id="demo-input-error" style="color: red; margin: 0 auto; text-align: center;"></p><br>
     <div class="demo-box">
-        <input id="demo-input" type="text" class="demo-input" placeholder="Enter some text here.. " />
-        <input id="demo-submit" type="image" src="static/assets/button.svg" />
-
+        <input id="demo-input" type="text" class="demo-input" placeholder="Enter some text here.. " autocomplete="off" />
+        <button id="demo-submit" type="submit"><img id="submit-btn-svg" alt="submit button" src="static/assets/button.svg" onclick="censor()"></button>
         <script>
-            var myform = document.getElementById('demo-submit');
             var demo_input = document.getElementById('demo-input');
-            var demo_input_error = document.getElementById('demo-input-error');
-            myform.onclick = function() {
+            function censor() {
+                var myform = document.getElementById('demo-submit');
+                var demo_input = document.getElementById('demo-input');
+                var demo_input_error = document.getElementById('demo-input-error');
+                var submit_btn_svg = document.getElementById('submit-btn-svg');
                 if(demo_input.value !== ""){
                     demo_input_error.innerHTML = "";
-                    fetch(window.location.origin + '/filter/' + escape(demo_input.value))
+                    //submit_btn_svg.src = "static/assets/Rolling-0.6s-57px.svg";
+                    submit_btn_svg.style.borderRadius = "8px";
+                    myform.disabled = true;
+                    fetch(window.location.origin + '/filter/' + escape(demo_input.value)+'?delay=0.25')
                         .then((response) => {
                             return response.text();
                         })
                         .then((data) => {
                             console.log(data);
-                            demo_input.value = data
+                            demo_input.placeholder = data;
+                            demo_input.value = "";
+                            //submit_btn_svg.src = "static/assets/button.svg";
+                            myform.disabled = false;
                         });
-                    myform.submit();
                 }
                 else
                 {
+                    myform.disabled = false;
+                    //submit_btn_svg.src = "static/assets/button.svg";
                     demo_input_error.innerHTML = "Please enter some value !";
                 }
-            };
+            }
+            demo_input.addEventListener("keydown", function (e) {
+                if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
+                    censor();
+                }
+            });
         </script>
     </div>
 </section>
