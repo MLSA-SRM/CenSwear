@@ -1,0 +1,82 @@
+# CenSwear <img src="https://i.ibb.co/LpTqC8H/censwear.png" align="right">
+CenSwear is a Python based profanity filter API. CenSwear is a simple, free, and reliable language understanding API designed to recognize and remove profanity, obscenity, and other unwanted text. It’s a technology you can swear by!
+
+![](https://img.shields.io/github/forks/MLSA-SRM/profanity-filter-api?color=green&style=for-the-badge)
+![](https://img.shields.io/github/stars/MLSA-SRM/profanity-filter-api?color=silver&style=for-the-badge)
+![](https://img.shields.io/github/license/MLSA-SRM/profanity-filter-api?color=yellow&style=for-the-badge)
+## How it works
+<img src="https://i.imgur.com/YBsxhrV.gif" align="center">
+
+## How to use
+* Python <br>
+  <img src="https://i.imgur.com/l0uCIIW.png" width="700">
+
+## Built With:
+| Software/ Language | Version |
+|----------|---------|
+| Python | 3.8 |
+| Flask | 2.0.0 |
+
+## Features:
+* ### Profanity detection and filtering from texts 
+  * The API detects and censors swear words and profanities from chat and text messages based on an internal profanity list.
+  
+* ### Real-time censoring of expletives
+  * The web service also provides real-time redaction of swear words while emails and documents are being typed.
+  
+* ### Fast, accurate, reliable
+  * CenSwear ensures that not one single offensive message slips through its filters, creating a safe and productive environment for the users.
+  
+* ### Time Saving
+  * We’ve designed CenSwear in a way that helps eliminate the nuisance of having to maintain your own profanity database.
+
+Project Organization
+------------
+
+    ├── README.md          <- The top-level README for developers using this project.
+    ├── requirements.txt   <- contains all the librabry used
+    ├── src
+    |   ├── __init__.py 
+    │   ├── app.py         <- Main python file containig the flask app
+    │   ├── static
+    |       ├── app.py         <- Main python file containig the flask app 
+    │   └── raw            <- The original, immutable data dump
+    │
+    ├── guide              <- A set of markdown files with documented best practices, guidelines and rools for collaborative projects
+    │
+    ├── models             <- Trained and serialized models, model predictions, or model summaries
+    │
+    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
+    │                         the creator's initials, and a short `-` delimited description, e.g
+    │                         `1.0-jqp-initial-data-exploration`
+    │
+    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
+    │
+    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
+    │   └── figures        <- Generated graphics and figures to be used in reporting
+    │
+    ├── requirements.txt   <- The requirements file for reproducing the analysis environment
+    │
+    └── da-project         <- Source code for use in this project.
+        │
+        ├── data           <- Scripts to download or generate data
+        │   └── make_dataset.py
+        │
+        ├── features       <- Scripts to turn raw data into features for modeling
+        │   └── build_features.py
+        │
+        ├── models         <- Scripts to train models and then use trained models to make
+        │   │                 predictions
+        │   ├── predict_model.py
+        │   └── train_model.py
+        │
+        └── visualization  <- Scripts to create exploratory and results oriented visualizations
+            └── visualize.py
+
+
+## Contributors:
+
+* [Ayush Mishra](https://github.com/sudo-logic)
+* [Shreyas Dutta](https://github.com/ShreyasDatta)
+* [Manu Sunil](https://github.com/manushyaaa)
+* [Sahil Jena](https://github.com/sahiljena)
