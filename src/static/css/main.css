@@ -268,7 +268,7 @@ nav li a:hover {
     display: block;
 }
 .white-placeholder::-webkit-input-placeholder {
-    color: #b2cde0
+    color: #fff;
  }
 
 input,

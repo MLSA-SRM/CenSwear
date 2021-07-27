@@ -69,6 +69,8 @@ def wordlist():
 
 @app.route('/filter/<string>',methods=['GET','POST'])
 def filter(string):
+    if not unquote(string).split() or unquote(string) :
+        return "Please give a valid input"
     return filter_string(unquote(string))
 
 

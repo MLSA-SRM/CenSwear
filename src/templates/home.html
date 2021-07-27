@@ -32,7 +32,7 @@
                     myform.disabled = true;
                     demo_input_error.innerHTML = "";
                     //submit_btn_svg.src = "static/assets/Rolling-0.6s-57px.svg";
-                    fetch(window.location.origin + '/filter/' + escape(demo_input.value)+'?delay=5.05')
+                    fetch(window.location.origin + '/filter/' + escape(demo_input.value))
                         .then((response) => {
                             return response.text();
                         })
@@ -49,7 +49,7 @@
                 {
                     myform.disabled = false;
                     //submit_btn_svg.src = "static/assets/button.svg";
-                    demo_input_error.innerHTML = "Please enter some value !";
+                    demo_input_error.innerHTML = "Please enter a valid input";
                 }
             }
             demo_input.addEventListener("keydown", function (e) {
