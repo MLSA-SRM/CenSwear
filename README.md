@@ -38,18 +38,18 @@ Project Organization
     ├── requirements.txt   <- The requirements file for reproducing the environment
     │
     ├── test
-    |  └── app_test.py     <- The python script for testing the app
-    |
+    │  └── app_test.py     <- The python script for testing the app
+    │
     ├── LICENSE
-    |
+    │
     ├── Procfile           <- for heroku deployment
-    |
+    │
     └── src
         ├── __init__.py 
         ├── app.py         <- Main python file containig the flask app
         ├── templates
-        |   ├── base.html
-        |   └── home.html
+        │   ├── base.html
+        │   └── home.html
         └── static
             ├── assets     <- contains svg images and backgrounds 
             └── css        <- The css files for the web app
