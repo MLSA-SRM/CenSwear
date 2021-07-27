@@ -1,18 +1,15 @@
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
-name: Build and Test
+name: Build and Deploy App to azure.
 
 on:
-  push:
-    branches: [main]
-    types: [opened]
   pull_request:
+    types: [closed]
     branches: [main]
 
 jobs:
   build:
-    if: github.event.pull_request.merged == false
     env:
       WORDLIST_URL: ${{ secrets.WORDLIST_URL }}
 
@@ -50,3 +47,26 @@ jobs:
           path: |
             . 
             !venv/
+          
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+      - name: Download artifact from build job
+        if: ${{ github.event.pull_request.merged }}
+        uses: actions/download-artifact@v2
+        with:
+          name: python-app
+          path: .
+
+      - name: 'Deploy to Azure Web App'
+        if: ${{ github.event.pull_request.merged }}
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'profanity-filter-api'
+          slot-name: 'production'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9CF655578122422EBE405501BC15A506 }}

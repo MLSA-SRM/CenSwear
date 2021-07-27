@@ -3,6 +3,8 @@ from dotenv import load_dotenv
 import random
 import re
 import requests
+import time 
+from urllib.parse import unquote
 
 from flask import Flask, redirect, render_template, request, url_for
 
@@ -65,9 +67,11 @@ def wordlist():
     return '<br>'.join(filter_words)
 
 
-@app.route('/filter/<string>')
+@app.route('/filter/<string>',methods=['GET','POST'])
 def filter(string):
-    return filter_string(string)
+    if not unquote(string).split() or not unquote(string) :
+        return "Please give a valid input"
+    return filter_string(unquote(string))
 
 
 if __name__ == "__main__":

@@ -16,28 +16,14 @@
 
 </head>
 
-<!-- <script>
 
-    const mobileBtn = document.getElementById('mobile-cta')
-    nav = document.querySelector('nav');
-    mobileBtnExit = document.getElementById('mobile-exit');
-
-    mobileBtn.addEventListener('click', () => {
-        document.getElementById('github-cta-logo').style.display = 'none';
-        nav.classList.add('menu-btn');
-    })
-    mobileBtnExit.addEventListener('click', () => {
-        document.getElementById('github-cta-logo').style.display = 'flex';
-        nav.classList.remove('menu-btn');
-    })
-</script> -->
 
 <body>
 
     <div class="navbar">
         <div class="container">
             <a class="logo" href="#"><span>Cen</span>Swear</a>
-            <img id="mobile-cta" class="mobile-menu" src="static/assets/menu-1.svg" alt="Open Navigation">
+            <img id="mobile-cta" class="mobile-menu" src="static/assets/menu-1.svg" alt="Open Navigation" onclick="showMobNav()">
             <nav>
                 <img id="mobile-exit" class="mobile-menu-exit" src="static/assets/x-circle-1.svg" alt="Close Navigation Bar">
                 <ul class="primary-nav">
@@ -59,7 +45,22 @@
     </div>
 
     {% block content %} {% endblock content %}
-
+    <script>
+        function showMobNav(){
+            const mobileBtn = document.getElementById('mobile-cta')
+            nav = document.querySelector('nav');
+            mobileBtnExit = document.getElementById('mobile-exit');
+        
+            mobileBtn.addEventListener('click', () => {
+                document.getElementById('github-cta-logo').style.display = 'none';
+                nav.classList.add('menu-btn');
+            })
+            mobileBtnExit.addEventListener('click', () => {
+                document.getElementById('github-cta-logo').style.display = 'flex';
+                nav.classList.remove('menu-btn');
+            })
+        }
+    </script>
 </body>
 
 </html>

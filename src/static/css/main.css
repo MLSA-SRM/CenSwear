@@ -226,7 +226,50 @@ nav li a:hover {
     border-radius: 10px;
     border-width: 0;
     width: 700px;
+    font-size: 1.1em;
+    padding-left: 20px;
+    color: #FFF;
 }
+
+.demo-input:focus{
+    outline: 0px;
+    border: 1px solid #6FFFE9;
+    background-color: #111A33;
+    border-radius: 10px;
+    width: 700px;
+    font-size: 1.1em;
+    padding-left: 20px;
+    color: #FFF;
+}
+
+.demo-custom-btn {
+    background: #6FFFE9;
+    border-radius: 8px;
+    border: 0px;
+    width: 110px !important;
+    height: 40px;
+    padding: 2px 4px;
+}
+
+#demo-submit {
+    background: transparent;
+    border: 0px;
+    cursor: pointer;
+}
+
+#submit-btn-svg {
+    transform: scale(1.1);
+}
+
+.hide {
+    display: none;
+}
+.show {
+    display: block;
+}
+.white-placeholder::-webkit-input-placeholder {
+    color: #fff;
+ }
 
 input,
 select,
@@ -235,7 +278,10 @@ textarea:focus,
 input:focus {
     color: white;
     padding-left: 20px;
+    outline: 0px;
+    border: 1px solid #6FFFE9;
 }
+
 
 @media only screen and (min-width:768px) {
     body {
