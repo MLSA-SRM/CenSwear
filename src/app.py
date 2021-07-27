@@ -69,11 +69,7 @@ def wordlist():
 
 @app.route('/filter/<string>',methods=['GET','POST'])
 def filter(string):
-    if request.args.get('delay'):
-        time.sleep(float(request.args.get('delay')))
-        return filter_string(unquote(string))
-    else:
-        return filter_string(unquote(string))
+    return filter_string(unquote(string))
 
 
 if __name__ == "__main__":

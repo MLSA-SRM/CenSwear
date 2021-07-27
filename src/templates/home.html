@@ -20,7 +20,7 @@
     <p id="demo-input-error" style="color: red; margin: 0 auto; text-align: center;"></p><br>
     <div class="demo-box">
         <input id="demo-input" type="text" class="demo-input" placeholder="Enter some text here.. " autocomplete="off" />
-        <button id="demo-submit" type="submit"><img id="submit-btn-svg" alt="submit button" src="static/assets/button.svg" onclick="censor()"></button>
+        <button id="demo-submit" type="submit"  onclick="censor()"><img id="submit-btn-svg" alt="submit button" src="static/assets/button.svg"></button>
         <script>
             var demo_input = document.getElementById('demo-input');
             function censor() {
@@ -29,11 +29,10 @@
                 var demo_input_error = document.getElementById('demo-input-error');
                 var submit_btn_svg = document.getElementById('submit-btn-svg');
                 if(demo_input.value !== ""){
+                    myform.disabled = true;
                     demo_input_error.innerHTML = "";
                     //submit_btn_svg.src = "static/assets/Rolling-0.6s-57px.svg";
-                    submit_btn_svg.style.borderRadius = "8px";
-                    myform.disabled = true;
-                    fetch(window.location.origin + '/filter/' + escape(demo_input.value)+'?delay=0.25')
+                    fetch(window.location.origin + '/filter/' + escape(demo_input.value)+'?delay=5.05')
                         .then((response) => {
                             return response.text();
                         })
@@ -41,6 +40,7 @@
                             console.log(data);
                             demo_input.placeholder = data;
                             demo_input.value = "";
+                            demo_input.classList.add("white-placeholder");
                             //submit_btn_svg.src = "static/assets/button.svg";
                             myform.disabled = false;
                         });
