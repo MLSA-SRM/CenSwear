@@ -126,6 +126,136 @@ section {
     width: 170px;
     padding: 20px;
 }
+.api-info-section {
+    margin-bottom: 3.937rem;
+  }
+  
+  .api-info-section .container ul.api-info-panel {
+    width: 18.9rem;
+    margin: 0px auto 0px auto;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  
+  .api-info-section .container ul.api-info-panel h1 {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    text-align: center;
+    color: #EEF5F8;
+    margin: 3rem 0 1.5rem 0;
+  }
+  
+  .api-info-section .container ul.api-info-panel p {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 0px;
+    margin-bottom: 3rem;
+  }
+  
+  .api-info-section .container .tab {
+    overflow: hidden;
+  }
+  
+  .api-info-section .container .tab button {
+    background: rgba(4, 8, 18, 0.01);
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0.5rem 1.5rem;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 27px;
+    text-align: center;
+    color: #FFFFFE;
+  }
+  .api-info-section .container .tab button:focus {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 27px;
+    text-align: center;
+    color: var(--primary-color);
+    background: #040812;
+    border-radius: 7px 7px 0px 0px;
+  }
+  .api-info-section .container .tab:hover {
+    font-size: 28px;
+  }
+  
+  .api-info-section .container .tab .active {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 27px;
+    text-align: center;
+    color: var(--primary-color);
+    background: #040812;
+    border-radius: 7px 7px 0px 0px;
+  }
+  
+  .api-info-section .container .tabcontent {
+    display: none;
+    padding: 1.3rem;
+    height: 27.3rem;
+    background: #040812;
+    margin: 0 auto 0 auto;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    overflow: scroll;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.02),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.028),
+  0 12.5px 10px rgba(0, 0, 0, 0.035),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.042),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.05),
+  0 100px 80px rgba(0, 0, 0, 0.07)
+;
+
+  }
+  
+  .api-info-section .container .tabcontent img {
+    padding-left: 16.2rem;
+  }
+  
+  .api-info-section .container .tabcontent h1 {
+    font-family: monospace;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.93rem;
+    line-height: 22px;
+    color: #FFFFFF;
+    margin: 1.3rem 0 0.06rem 0;
+}
+
+.copy-notification {
+    font-family: Montserrat;
+    color: #ffffff;
+    background-color: rgba(0,0,0,0.8);
+    padding: 20px;
+    border-radius: 30px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    margin-top: -30px;
+    margin-left: -85px;
+    text-align:center;
+}
 
 .features-section .container ul.features {
     display: -webkit-box;
@@ -269,7 +399,7 @@ nav li a:hover {
 }
 .white-placeholder::-webkit-input-placeholder {
     color: #fff;
- }
+}
 
 input,
 select,
@@ -281,7 +411,10 @@ input:focus {
     outline: 0px;
     border: 1px solid #6FFFE9;
 }
-
+.api-info-section {
+    flex-direction: column;
+}
+  
 
 @media only screen and (min-width:768px) {
     body {
@@ -428,6 +561,42 @@ input:focus {
     }
     .left-col .hero-cta .hero-steps-img {
         display: none
+    }
+
+    .api-info-section {
+        margin-bottom: 3.937rem;
+        display: flex;
+        margin-top: 4rem;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .api-info-section .info-div{
+        width: 42%;
+        border: 0px solid red;
+    }
+    .api-info-section .code-div{
+        width: 47%;
+        border: 0px solid red;
+        margin-right: 5vw;
+    }
+
+    .api-info-section .container .tabcontent {
+        overflow-y: hidden; /* Hide vertical scrollbar */
+        overflow-x: hidden; /* Hide horizontal scrollbar */
+    }
+
+    .api-info-section .container ul.api-info-panel h1 {
+        margin-left: -20px;
+    }
+
+    .api-info-section .container ul.api-info-panel p {
+        text-align: left;
+    }
+
+    .api-info-section .container .tabcontent img {
+        float: right;
     }
     section.features-section {
         padding: 60px 36px

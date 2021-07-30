@@ -60,6 +60,101 @@
         </script>
     </div>
 </section>
+
+<section class="api-info-section">
+    <div id="copy-text" style="display: none;" class="copy-notification">Copied to clipboard</div>
+    <div class="container info-div">
+
+        <ul class="api-info-panel">
+            <h1>Submission API</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi donec integer donec pellentesque velit euismod vivamus. Aliquet viverra turpis mattis justo. Leo nisi, lacus netus elementum.</p>
+        </ul>
+    </div>
+
+    <div class="container code-div">
+
+        <div class="tab">
+        <button class="tablinks" onclick="show('Python')" autofocus="autofocus">Python</button>
+        <button class="tablinks" onclick="show('Tines')">Tines</button>
+        <button class="tablinks" onclick="show('Curl')">Curl</button>
+      </div>
+      
+      <div id="Python" class="tabcontent" style="display: block;">
+
+        <img src="static/assets/Copy-Icon.svg" class="copy-icon" alt="Copy the associated code snippet" onclick='copyElementText("python-code")'>
+
+        <h1 id="python-code">
+            import requests<br>
+            sentance = "You are shit"<br>
+            url = "https://profanity-filter-api.azurewebsites.net/filter/{}".format(sentance)<br>
+            r = requests.get(url)<br>
+            print(r.status_code)<br>
+            print(r.text)
+        </h1>
+      </div>
+      
+      <div id="Tines" class="tabcontent">
+
+        <img src="static/assets/Copy-Icon.svg" class="copy-icon" alt="Copy the associated code snippet" onclick='copyElementText("tines-code")'>
+
+        <h1 id="tines-code">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi donec integer donec pellentesque velit euismod vivamus. Aliquet viverra turpis mattis justo. Leo nisi, lacus netus elementum.
+        </h1>
+            
+      </div>
+      
+      <div id="Curl" class="tabcontent">
+
+        <img src="static/assets/Copy-Icon.svg" class="copy-icon" alt="Copy the associated code snippet" onclick='copyElementText("curl-code")'>
+
+        <h1 id="curl-code">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi donec integer donec pellentesque velit euismod vivamus. Aliquet viverra turpis mattis justo. Leo nisi, lacus netus elementum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi donec integer donec pellentesque velit euismod vivamus. Aliquet viverra turpis mattis justo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi donec integer donec pellentesque velit euismod vivamus.
+        </h1>
+      </div>
+
+      <script>
+        function show(lang) {
+            var pythonCode =  document.getElementById("Python");
+            var tinesCode =  document.getElementById("Tines");
+            var curlCode =  document.getElementById("Curl");
+            switch(lang) {
+                case 'Python':
+                    pythonCode.style.display="block";
+                    tinesCode.style.display="none";
+                    curlCode.style.display="none";
+                    break;
+                case 'Tines':
+                    pythonCode.style.display="none";
+                    tinesCode.style.display="block";
+                    curlCode.style.display="none";
+                    break;
+                case 'Curl':
+                    pythonCode.style.display="none";
+                    tinesCode.style.display="none";
+                    curlCode.style.display="block";
+                    break;
+
+            }
+        }
+        function copyElementText(id) {
+            var text = document.getElementById(id).innerText;
+            var elem = document.createElement("textarea");
+            var copytext = document.getElementById("copy-text");
+            document.body.appendChild(elem);
+            elem.value = text;
+            elem.select();
+            document.execCommand("copy");
+            document.body.removeChild(elem);
+            copytext.style.display="block";
+            setTimeout(function(){ var copytext = document.getElementById("copy-text");  copytext.style.display="none"; }, 2000);
+        }
+        </script>
+    </div>  
+
+
+</section>
+
+
 <section class="features-section ">
     <div class="container ">
         <ul class="features ">
