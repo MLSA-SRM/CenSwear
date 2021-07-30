@@ -3,7 +3,6 @@ from dotenv import load_dotenv
 import random
 import re
 import requests
-import time 
 from urllib.parse import unquote
 
 from flask import Flask, redirect, render_template, request, url_for
