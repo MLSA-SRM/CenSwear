@@ -5,7 +5,7 @@ import re
 import requests
 from urllib.parse import unquote
 
-from flask import Flask, redirect, render_template, request, url_for
+from flask import Flask, json, redirect, render_template, request, url_for, jsonify, abort
 
 app = Flask(__name__)
 
@@ -17,6 +17,7 @@ WORDLIST_URL = os.environ['WORDLIST_URL']
 filter_words = requests.get(WORDLIST_URL).json()
 
 censor_symbols = '$#!*'
+
 
 def filter_string(msg, sec_run=False):
     if sec_run:
@@ -66,11 +67,15 @@ def wordlist():
     return '<br>'.join(filter_words)
 
 
-@app.route('/filter/<string>',methods=['GET','POST'])
-def filter(string):
-    if not unquote(string).split() or not unquote(string) :
-        return "Please give a valid input"
-    return filter_string(unquote(string))
+@app.route('/filter', methods=['GET', 'POST'])
+def filter():
+    if request.method == 'POST':
+        if not request.json or not 'text' in request.json:
+            abort(400)
+        string = request.json.get("text", "")
+    else:
+        string = request.args.get("text", "")
+    return jsonify({'result': filter_string(string)}), 200
 
 
 if __name__ == "__main__":

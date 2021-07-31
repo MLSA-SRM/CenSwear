@@ -17,43 +17,48 @@
     </div>
 </section>
 <section class="demo-area">
-    <p id="demo-input-error" style="color: red; margin: 0 auto; text-align: center;"></p><br>
+    <p id="demo-input-error" style="color: rgb(255, 86, 86); margin: 0 auto; text-align: center; font-family: Montserrat;"></p><br>
     <div class="demo-box">
         <input id="demo-input" type="text" class="demo-input" placeholder="Enter some text here.. " autocomplete="off" />
-        <button id="demo-submit" type="submit"  onclick="censor()"><img id="submit-btn-svg" alt="submit button" src="static/assets/button.svg"></button>
+        <button id="demo-submit" type="submit" onclick="censor()"><img id="submit-btn-svg" alt="submit button" src="static/assets/button.svg"></button>
         <script>
             var demo_input = document.getElementById('demo-input');
+
             function censor() {
                 var myform = document.getElementById('demo-submit');
                 var demo_input = document.getElementById('demo-input');
                 var demo_input_error = document.getElementById('demo-input-error');
                 var submit_btn_svg = document.getElementById('submit-btn-svg');
-                if(demo_input.value !== ""){
+                if (demo_input.value !== "") {
                     myform.disabled = true;
                     demo_input_error.innerHTML = "";
                     //submit_btn_svg.src = "static/assets/Rolling-0.6s-57px.svg";
-                    fetch(window.location.origin + '/filter/' + escape(demo_input.value))
-                        .then((response) => {
-                            return response.text();
+                    fetch(window.location.origin + '/filter', {
+                            method: 'POST',
+                            body: JSON.stringify({
+                                'text': demo_input.value
+                            }),
+                            headers: {
+                                'Content-type': 'application/json; charset=UTF-8'
+                            }
                         })
-                        .then((data) => {
-                            console.log(data);
-                            demo_input.placeholder = data;
+                        .then(response => response.json())
+                        .then((json) => {
+                            console.log(json);
+                            demo_input.placeholder = json['result'];
                             demo_input.value = "";
                             demo_input.classList.add("white-placeholder");
                             //submit_btn_svg.src = "static/assets/button.svg";
                             myform.disabled = false;
                         });
-                }
-                else
-                {
+                } else {
                     myform.disabled = false;
                     //submit_btn_svg.src = "static/assets/button.svg";
                     demo_input_error.innerHTML = "Please enter a valid input";
                 }
             }
-            demo_input.addEventListener("keydown", function (e) {
-                if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
+            demo_input.addEventListener("keydown", function(e) {
+                if (e.code === "Enter") { //checks whether the pressed key is "Enter"
                     censor();
                 }
             });
@@ -66,90 +71,110 @@
     <div class="container info-div">
 
         <ul class="api-info-panel">
-            <h1>Submission API</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi donec integer donec pellentesque velit euismod vivamus. Aliquet viverra turpis mattis justo. Leo nisi, lacus netus elementum.</p>
+            <h1>Easy Integration</h1>
+            <p>CenSwear supports both GET and POST requests.<br><br>Just copy these prefabricated snippets and you will be ready to go!</p>
         </ul>
     </div>
 
     <div class="container code-div">
 
         <div class="tab">
-        <button class="tablinks" onclick="show('Python')" autofocus="autofocus">Python</button>
-        <button class="tablinks" onclick="show('Tines')">Tines</button>
-        <button class="tablinks" onclick="show('Curl')">Curl</button>
-      </div>
-      
-      <div id="Python" class="tabcontent" style="display: block;">
+            <button class="tablinks button-active" id='curl-button' onclick="show('Curl')">Curl</button>
+            <button class="tablinks" id='python-button' onclick="show('Python')">Python</button>
+            <button class="tablinks" id='node-button' onclick="show('NodeJs')">JavaScript/AJAX</button>
+        </div>
 
-        <img src="static/assets/Copy-Icon.svg" class="copy-icon" alt="Copy the associated code snippet" onclick='copyElementText("python-code")'>
+        <div id="Python" class="tabcontent">
 
-        <h1 id="python-code">
-            import requests<br>
-            sentance = "You are shit"<br>
-            url = "https://profanity-filter-api.azurewebsites.net/filter/{}".format(sentance)<br>
-            r = requests.get(url)<br>
-            print(r.status_code)<br>
-            print(r.text)
-        </h1>
-      </div>
-      
-      <div id="Tines" class="tabcontent">
+            <img src="static/assets/Copy-Icon.svg" class="copy-icon" alt="Copy the associated code snippet" onclick='copyElementText("python-code")'>
 
-        <img src="static/assets/Copy-Icon.svg" class="copy-icon" alt="Copy the associated code snippet" onclick='copyElementText("tines-code")'>
+            <h1 id="python-code">
+                import requests<br> text = "Hello There!"<br> url = "https://profanity-filter-api.azurewebsites.net/filter"<br> r = requests.post(url, data={"text":text})<br> print(r.status_code)
+                <br> print(r.text)
+            </h1>
+        </div>
 
-        <h1 id="tines-code">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi donec integer donec pellentesque velit euismod vivamus. Aliquet viverra turpis mattis justo. Leo nisi, lacus netus elementum.
-        </h1>
-            
-      </div>
-      
-      <div id="Curl" class="tabcontent">
+        <div id="node" class="tabcontent">
 
-        <img src="static/assets/Copy-Icon.svg" class="copy-icon" alt="Copy the associated code snippet" onclick='copyElementText("curl-code")'>
+            <img src="static/assets/Copy-Icon.svg" class="copy-icon" alt="Copy the associated code snippet" onclick='copyElementText("node-code")'>
 
-        <h1 id="curl-code">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi donec integer donec pellentesque velit euismod vivamus. Aliquet viverra turpis mattis justo. Leo nisi, lacus netus elementum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi donec integer donec pellentesque velit euismod vivamus. Aliquet viverra turpis mattis justo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi donec integer donec pellentesque velit euismod vivamus.
-        </h1>
-      </div>
+            <h1 id="node-code">
+                var url = "http://localhost:5000/filter";<br>
+                <br> var xhr = new XMLHttpRequest();<br> xhr.open("POST", url);<br>
+                <br> xhr.setRequestHeader("Content-Type", "application/json");<br>
+                <br> xhr.onreadystatechange = function () {<br> if (xhr.readyState === 4) {<br> console.log(xhr.status);
+                <br> console.log(xhr.responseText);
+                <br> }};
+                <br>
+                <br> var data = '{"text":"Hello There!"}';<br>
+                <br> xhr.send(data);
+                <br>
+                <br>
+            </h1>
 
-      <script>
-        function show(lang) {
-            var pythonCode =  document.getElementById("Python");
-            var tinesCode =  document.getElementById("Tines");
-            var curlCode =  document.getElementById("Curl");
-            switch(lang) {
-                case 'Python':
-                    pythonCode.style.display="block";
-                    tinesCode.style.display="none";
-                    curlCode.style.display="none";
-                    break;
-                case 'Tines':
-                    pythonCode.style.display="none";
-                    tinesCode.style.display="block";
-                    curlCode.style.display="none";
-                    break;
-                case 'Curl':
-                    pythonCode.style.display="none";
-                    tinesCode.style.display="none";
-                    curlCode.style.display="block";
-                    break;
+        </div>
 
+        <div id="Curl" class="tabcontent" style="display: block;">
+
+            <img src="static/assets/Copy-Icon.svg" class="copy-icon" alt="Copy the associated code snippet" onclick='copyElementText("curl-code")'>
+
+            <h1 id="curl-code">
+                curl -X GET http://localhost:5000/filter?text="Hello There!"
+                <br> <br> curl -X POST https://profanity-filter-api.azurewebsites.net/filter -H "Content-Type: application/json" -d "{\"text\":\"Hello There!\"}"
+            </h1>
+        </div>
+
+        <script>
+            function show(lang) {
+                var pythonCode = document.getElementById("Python");
+                var nodeCode = document.getElementById("node");
+                var curlCode = document.getElementById("Curl");
+                var python_button = document.getElementById("python-button");
+                var node_button = document.getElementById("node-button");
+                var curl_button = document.getElementById("curl-button");
+
+                python_button.classList.remove('button-active');
+                node_button.classList.remove('button-active');
+                curl_button.classList.remove('button-active');
+
+                pythonCode.style.display = "none";
+                nodeCode.style.display = "none";
+                curlCode.style.display = "none";
+
+                switch (lang) {
+                    case 'Python':
+                        pythonCode.style.display = "block";
+                        python_button.classList.add('button-active')
+                        break;
+                    case 'NodeJs':
+                        nodeCode.style.display = "block";
+                        node_button.classList.add('button-active')
+                        break;
+                    case 'Curl':
+                        curlCode.style.display = "block";
+                        curl_button.classList.add('button-active')
+                        break;
+
+                }
             }
-        }
-        function copyElementText(id) {
-            var text = document.getElementById(id).innerText;
-            var elem = document.createElement("textarea");
-            var copytext = document.getElementById("copy-text");
-            document.body.appendChild(elem);
-            elem.value = text;
-            elem.select();
-            document.execCommand("copy");
-            document.body.removeChild(elem);
-            copytext.style.display="block";
-            setTimeout(function(){ var copytext = document.getElementById("copy-text");  copytext.style.display="none"; }, 2000);
-        }
+
+            function copyElementText(id) {
+                var text = document.getElementById(id).innerText;
+                var elem = document.createElement("textarea");
+                var copytext = document.getElementById("copy-text");
+                document.body.appendChild(elem);
+                elem.value = text;
+                elem.select();
+                document.execCommand("copy");
+                document.body.removeChild(elem);
+                copytext.style.display = "block";
+                setTimeout(function() {
+                    var copytext = document.getElementById("copy-text");
+                    copytext.style.display = "none";
+                }, 2000);
+            }
         </script>
-    </div>  
+    </div>
 
 
 </section>

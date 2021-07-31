@@ -28,13 +28,13 @@
                 <img id="mobile-exit" class="mobile-menu-exit" src="static/assets/x-circle-1.svg" alt="Close Navigation Bar">
                 <ul class="primary-nav">
                     <li class="current"><a href="#">Home</a></li>
-                    <li><a href="https://medium.com/mlsa-srm">Blog</a></li>
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="https://medium.com/mlsa-srm" target="_blank">Blog</a></li>
+                    <li><a href="https://msclubsrm.in/team.html" target="_blank">About Us</a></li>
                 </ul>
 
                 <ul class="secondary-nav">
                     <li class="github-cta">
-                        <a href="https://github.com/MLSA-SRM/profanity-filter-api" class="github-button">
+                        <a href="https://github.com/MLSA-SRM/profanity-filter-api" target="_blank" class="github-button">
                             <img id='github-cta-logo' class="github-logo" src="static/assets/github-icon.svg" alt="Github logo"> Github
                         </a>
                     </li>
@@ -46,11 +46,11 @@
 
     {% block content %} {% endblock content %}
     <script>
-        function showMobNav(){
+        function showMobNav() {
             const mobileBtn = document.getElementById('mobile-cta')
             nav = document.querySelector('nav');
             mobileBtnExit = document.getElementById('mobile-exit');
-        
+
             mobileBtn.addEventListener('click', () => {
                 document.getElementById('github-cta-logo').style.display = 'none';
                 nav.classList.add('menu-btn');
