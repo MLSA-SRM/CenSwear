@@ -3,7 +3,7 @@
 <section class="hero">
     <div class="container">
         <div class="left-col">
-            <p class="overline">A Python based profanity filter</p>
+            <p class="overline">A python based profanity filter</p>
             <h1>You curse, we censor!</h1>
             <h2>CenSwear is a simple, free, and reliable language understanding API designed to recognize and remove profanity, obscenity, and other unwanted text. It’s a technology you can swear by!</h2>
 
@@ -79,12 +79,23 @@
     <div class="container code-div">
 
         <div class="tab">
-            <button class="tablinks button-active" id='curl-button' onclick="show('Curl')">Curl</button>
-            <button class="tablinks" id='python-button' onclick="show('Python')">Python</button>
-            <button class="tablinks" id='js-button' onclick="show('JS')">JavaScript/AJAX</button>
+            <button class="tablinks button-active" id='curl-button' onclick="show('curl')">Curl</button>
+            <button class="tablinks" id='python-button' onclick="show('python')">Python</button>
+            <button class="tablinks" id='js-button' onclick="show('js')">JavaScript/AJAX</button>
+            <button class="tablinks" id='axios-button' onclick="show('axios')">Axios</button>
         </div>
 
-        <div id="Python" class="tabcontent">
+        <div id="axios" class="tabcontent">
+
+            <img src="static/assets/Copy-Icon.svg" class="copy-icon" alt="Copy the associated code snippet" onclick='copyElementText("axios-code")'>
+
+            <h1 id="axios-code">
+                var axios = require("axios"); <br>
+                <br> axios.post("https://censwear.herokuapp.com/filter", { <br> text: "Hello There!" <br> }).then(function(response) { <br> console.log(response.data['result']); <br> }) <br> .catch(function(error) { <br> console.log(error); <br> }); <br>
+            </h1>
+        </div>
+
+        <div id="python" class="tabcontent">
 
             <img src="static/assets/Copy-Icon.svg" class="copy-icon" alt="Copy the associated code snippet" onclick='copyElementText("python-code")'>
 
@@ -114,7 +125,7 @@
 
         </div>
 
-        <div id="Curl" class="tabcontent" style="display: block;">
+        <div id="curl" class="tabcontent" style="display: block;">
 
             <img src="static/assets/Copy-Icon.svg" class="copy-icon" alt="Copy the associated code snippet" onclick='copyElementText("curl-code")'>
 
@@ -126,33 +137,43 @@
 
         <script>
             function show(lang) {
-                var pythonCode = document.getElementById("Python");
+                var pythonCode = document.getElementById("python");
                 var jsCode = document.getElementById("js");
-                var curlCode = document.getElementById("Curl");
+                var curlCode = document.getElementById("curl");
+                var axiosCode = document.getElementById("axios");
+
                 var python_button = document.getElementById("python-button");
                 var js_button = document.getElementById("js-button");
                 var curl_button = document.getElementById("curl-button");
+                var axios_button = document.getElementById("axios-button");
 
                 python_button.classList.remove('button-active');
                 js_button.classList.remove('button-active');
                 curl_button.classList.remove('button-active');
+                axios_button.classList.remove('button-active');
 
                 pythonCode.style.display = "none";
                 jsCode.style.display = "none";
                 curlCode.style.display = "none";
+                axiosCode.style.display = "none";
 
                 switch (lang) {
-                    case 'Python':
+                    case 'python':
                         pythonCode.style.display = "block";
                         python_button.classList.add('button-active')
                         break;
-                    case 'JS':
+                    case 'js':
                         jsCode.style.display = "block";
                         js_button.classList.add('button-active')
                         break;
-                    case 'Curl':
+                    case 'curl':
                         curlCode.style.display = "block";
                         curl_button.classList.add('button-active')
+                        break;
+
+                    case 'axios':
+                        axiosCode.style.display = "block";
+                        axios_button.classList.add('button-active')
                         break;
 
                 }
