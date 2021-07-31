@@ -5,7 +5,7 @@ import re
 import requests
 from urllib.parse import unquote
 
-from flask import Flask, json, redirect, render_template, request, url_for, jsonify
+from flask import Flask, json, redirect, render_template, request, url_for, jsonify, abort
 
 app = Flask(__name__)
 
@@ -67,13 +67,15 @@ def wordlist():
     return '<br>'.join(filter_words)
 
 
-@app.route('/filter/', methods=['GET', 'POST'])
+@app.route('/filter', methods=['GET', 'POST'])
 def filter():
     if request.method == 'POST':
+        if not request.json or not 'text' in request.json:
+            abort(400)
         string = request.json.get("text", "")
     else:
         string = request.args.get("text", "")
-    return jsonify({'result': filter_string(string)})
+    return jsonify({'result': filter_string(string)}), 200
 
 
 if __name__ == "__main__":

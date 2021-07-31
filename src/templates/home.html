@@ -33,7 +33,7 @@
                     myform.disabled = true;
                     demo_input_error.innerHTML = "";
                     //submit_btn_svg.src = "static/assets/Rolling-0.6s-57px.svg";
-                    fetch(window.location.origin + '/filter/', {
+                    fetch(window.location.origin + '/filter', {
                             method: 'POST',
                             body: JSON.stringify({
                                 'text': demo_input.value
@@ -81,15 +81,15 @@
         <div class="tab">
             <button class="tablinks button-active" id='curl-button' onclick="show('Curl')">Curl</button>
             <button class="tablinks" id='python-button' onclick="show('Python')">Python</button>
-            <button class="tablinks" id='node-button' onclick="show('NodeJs')">NodeJs</button>
+            <button class="tablinks" id='node-button' onclick="show('NodeJs')">JavaScript/AJAX</button>
         </div>
 
-        <div id="Python" class="tabcontent" style="display: block;">
+        <div id="Python" class="tabcontent">
 
             <img src="static/assets/Copy-Icon.svg" class="copy-icon" alt="Copy the associated code snippet" onclick='copyElementText("python-code")'>
 
             <h1 id="python-code">
-                import requests<br> sentance = "You are shit"<br> url = "https://profanity-filter-api.azurewebsites.net/filter/{}".format(sentance)<br> r = requests.get(url)<br> print(r.status_code)
+                import requests<br> text = "Hello There!"<br> url = "https://profanity-filter-api.azurewebsites.net/filter"<br> r = requests.post(url, data={"text":text})<br> print(r.status_code)
                 <br> print(r.text)
             </h1>
         </div>
@@ -99,18 +99,27 @@
             <img src="static/assets/Copy-Icon.svg" class="copy-icon" alt="Copy the associated code snippet" onclick='copyElementText("node-code")'>
 
             <h1 id="node-code">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi donec integer donec pellentesque velit euismod vivamus. Aliquet viverra turpis mattis justo. Leo nisi, lacus netus elementum.
+                var url = "http://localhost:5000/filter";<br>
+                <br> var xhr = new XMLHttpRequest();<br> xhr.open("POST", url);<br>
+                <br> xhr.setRequestHeader("Content-Type", "application/json");<br>
+                <br> xhr.onreadystatechange = function () {<br> if (xhr.readyState === 4) {<br> console.log(xhr.status);
+                <br> console.log(xhr.responseText);
+                <br> }};
+                <br>
+                <br> var data = '{"text":"Hello There!"}';<br>
+                <br> xhr.send(data);
+                <br>
+                <br>
             </h1>
 
         </div>
 
-        <div id="Curl" class="tabcontent">
+        <div id="Curl" class="tabcontent" style="display: block;">
 
             <img src="static/assets/Copy-Icon.svg" class="copy-icon" alt="Copy the associated code snippet" onclick='copyElementText("curl-code")'>
 
             <h1 id="curl-code">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi donec integer donec pellentesque velit euismod vivamus. Aliquet viverra turpis mattis justo. Leo nisi, lacus netus elementum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi donec
-                integer donec pellentesque velit euismod vivamus. Aliquet viverra turpis mattis justo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi donec integer donec pellentesque velit euismod vivamus.
+                curl -X POST https://profanity-filter-api.azurewebsites.net/filter -H "Content-Type: application/json" -d "{\"text\":\"Hello There!\"}"
             </h1>
         </div>
 
