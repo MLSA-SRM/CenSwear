@@ -119,7 +119,8 @@
             <img src="static/assets/Copy-Icon.svg" class="copy-icon" alt="Copy the associated code snippet" onclick='copyElementText("curl-code")'>
 
             <h1 id="curl-code">
-                curl -X POST https://profanity-filter-api.azurewebsites.net/filter -H "Content-Type: application/json" -d "{\"text\":\"Hello There!\"}"
+                curl -X GET http://localhost:5000/filter?text="Hello There!"
+                <br> curl -X POST https://profanity-filter-api.azurewebsites.net/filter -H "Content-Type: application/json" -d "{\"text\":\"Hello There!\"}"
             </h1>
         </div>
 
