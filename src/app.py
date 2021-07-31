@@ -16,7 +16,7 @@ load_dotenv()
 WORDLIST_URL = os.environ['WORDLIST_URL']
 filter_words = requests.get(WORDLIST_URL).json()
 
-censor_symbols = '$#!*'
+censor_symbols = '*'
 
 
 def filter_string(msg, sec_run=False):
