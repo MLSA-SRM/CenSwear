@@ -81,7 +81,7 @@
         <div class="tab">
             <button class="tablinks button-active" id='curl-button' onclick="show('Curl')">Curl</button>
             <button class="tablinks" id='python-button' onclick="show('Python')">Python</button>
-            <button class="tablinks" id='node-button' onclick="show('NodeJs')">JavaScript/AJAX</button>
+            <button class="tablinks" id='js-button' onclick="show('JS')">JavaScript/AJAX</button>
         </div>
 
         <div id="Python" class="tabcontent">
@@ -94,12 +94,12 @@
             </h1>
         </div>
 
-        <div id="node" class="tabcontent">
+        <div id="js" class="tabcontent">
 
-            <img src="static/assets/Copy-Icon.svg" class="copy-icon" alt="Copy the associated code snippet" onclick='copyElementText("node-code")'>
+            <img src="static/assets/Copy-Icon.svg" class="copy-icon" alt="Copy the associated code snippet" onclick='copyElementText("js-code")'>
 
-            <h1 id="node-code">
-                var url = "http://localhost:5000/filter";<br>
+            <h1 id="js-code">
+                var url = "https://profanity-filter-api.azurewebsites.net/filter";<br>
                 <br> var xhr = new XMLHttpRequest();<br> xhr.open("POST", url);<br>
                 <br> xhr.setRequestHeader("Content-Type", "application/json");<br>
                 <br> xhr.onreadystatechange = function () {<br> if (xhr.readyState === 4) {<br> console.log(xhr.status);
@@ -119,7 +119,7 @@
             <img src="static/assets/Copy-Icon.svg" class="copy-icon" alt="Copy the associated code snippet" onclick='copyElementText("curl-code")'>
 
             <h1 id="curl-code">
-                curl -X GET http://localhost:5000/filter?text="Hello There!"
+                curl -X GET https://profanity-filter-api.azurewebsites.net/filter?text="Hello There!"
                 <br> <br> curl -X POST https://profanity-filter-api.azurewebsites.net/filter -H "Content-Type: application/json" -d "{\"text\":\"Hello There!\"}"
             </h1>
         </div>
@@ -127,18 +127,18 @@
         <script>
             function show(lang) {
                 var pythonCode = document.getElementById("Python");
-                var nodeCode = document.getElementById("node");
+                var jsCode = document.getElementById("js");
                 var curlCode = document.getElementById("Curl");
                 var python_button = document.getElementById("python-button");
-                var node_button = document.getElementById("node-button");
+                var js_button = document.getElementById("js-button");
                 var curl_button = document.getElementById("curl-button");
 
                 python_button.classList.remove('button-active');
-                node_button.classList.remove('button-active');
+                js_button.classList.remove('button-active');
                 curl_button.classList.remove('button-active');
 
                 pythonCode.style.display = "none";
-                nodeCode.style.display = "none";
+                jsCode.style.display = "none";
                 curlCode.style.display = "none";
 
                 switch (lang) {
@@ -146,9 +146,9 @@
                         pythonCode.style.display = "block";
                         python_button.classList.add('button-active')
                         break;
-                    case 'NodeJs':
-                        nodeCode.style.display = "block";
-                        node_button.classList.add('button-active')
+                    case 'JS':
+                        jsCode.style.display = "block";
+                        js_button.classList.add('button-active')
                         break;
                     case 'Curl':
                         curlCode.style.display = "block";
