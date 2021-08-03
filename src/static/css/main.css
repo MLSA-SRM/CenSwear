@@ -488,7 +488,7 @@ input:focus {
     transform: scale(1.1);
 }
 #dynamicText::before {
-    content: "Fast ";
+    content: "  Fast         ";
     animation: infinite linear 5s type;
     -webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
     animation-timing-function: linear;
@@ -518,7 +518,7 @@ input:focus {
     }
 
     75% {
-        content: "Fast ";
+        content: "       Fast       ";
         color: #FF3D51;
     }
 }
