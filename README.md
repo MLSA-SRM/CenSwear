@@ -20,6 +20,9 @@ CenSwear is a Python based profanity filter API. CenSwear is a simple, free, and
 ## Features:
 * ### Profanity detection and filtering from texts 
   * The API detects and censors swear words and profanities from chat and text messages based on an internal profanity list.
+
+* ### Bilingual
+  * We’ve designed CenSwear in a way that it detetcts profanities in both Hindi and English
   
 * ### Real-time censoring of expletives
   * The web service also provides real-time redaction of swear words while emails and documents are being typed.
@@ -27,8 +30,6 @@ CenSwear is a Python based profanity filter API. CenSwear is a simple, free, and
 * ### Fast, accurate, reliable
   * CenSwear ensures that not one single offensive message slips through its filters, creating a safe and productive environment for the users.
   
-* ### Time Saving
-  * We’ve designed CenSwear in a way that helps eliminate the nuisance of having to maintain your own profanity database.
 
 Project Organization
 ------------
