@@ -15,7 +15,7 @@ body {
 
 .navbar {
     background: #0b132b;
-    padding: 16px 24px
+    padding: auto
 }
 
 .navbar .logo {
@@ -47,12 +47,12 @@ body {
 
 .input-box {
     align-items: center;
-    color: #111A33;
+    color: #111a33;
     background-size: 100% 100%;
     display: inline-block;
     flex-direction: column;
     min-height: 73px;
-    width: 469px;
+    width: 469px
 }
 
 a {
@@ -81,7 +81,7 @@ section {
     letter-spacing: .495em;
     text-transform: uppercase;
     color: #858585;
-    padding: 10px;
+    padding: 10px
 }
 
 .left-col h1 {
@@ -124,18 +124,18 @@ section {
 
 .left-col .hero-cta .hero-steps-img {
     width: 170px;
-    padding: 20px;
+    padding: 20px
 }
 
 .api-info-section {
-    margin-bottom: 3.937rem;
+    margin-bottom: 3.937rem
 }
 
 .api-info-section .container ul.api-info-panel {
     width: 18.9rem;
-    margin: 0px auto 0px auto;
+    margin: 0 auto 0 auto;
     -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+    box-sizing: border-box
 }
 
 .api-info-section .container ul.api-info-panel h1 {
@@ -145,40 +145,40 @@ section {
     font-size: 36px;
     line-height: 43px;
     text-align: center;
-    color: #EEF5F8;
-    margin: 3rem 0 1.5rem 0;
+    color: #eef5f8;
+    margin: 3rem 0 1.5rem 0
 }
 
 .api-info-section .container ul.api-info-panel p {
     font-family: Montserrat;
     font-style: normal;
-    font-weight: normal;
+    font-weight: 400;
     font-size: 18px;
     line-height: 27px;
     text-align: center;
-    color: #FFFFFF;
-    margin: 0px;
-    margin-bottom: 3rem;
+    color: #fff;
+    margin: 0;
+    margin-bottom: 3rem
 }
 
 .api-info-section .container .tab {
-    overflow: hidden;
+    overflow: hidden
 }
 
 .api-info-section .container .tab button {
-    background: rgba(4, 8, 18, 0.01);
+    background: rgba(4, 8, 18, .01);
     float: left;
     border: none;
-    outline: none;
+    outline: 0;
     cursor: pointer;
-    padding: 0.5rem 1.5rem;
+    padding: .5rem 1.5rem;
     font-family: Montserrat;
     font-style: normal;
     font-weight: 500;
     font-size: 1.125rem;
     line-height: 27px;
     text-align: center;
-    color: #FFFFFE;
+    color: #fffffe
 }
 
 .api-info-section .container .tab .button-active {
@@ -190,11 +190,11 @@ section {
     text-align: center;
     color: var(--primary-color);
     background: #040812;
-    border-radius: 7px 7px 0px 0px;
+    border-radius: 7px 7px 0 0
 }
 
 .api-info-section .container .tab:hover {
-    font-size: 28px;
+    font-size: 28px
 }
 
 .api-info-section .container .tab .active {
@@ -206,7 +206,7 @@ section {
     text-align: center;
     color: var(--primary-color);
     background: #040812;
-    border-radius: 7px 7px 0px 0px;
+    border-radius: 7px 7px 0 0
 }
 
 .api-info-section .container .tabcontent {
@@ -220,27 +220,35 @@ section {
     overflow: scroll;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
-    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.02), 0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, 0.035), 0 22.3px 17.9px rgba(0, 0, 0, 0.042), 0 41.8px 33.4px rgba(0, 0, 0, 0.05), 0 100px 80px rgba(0, 0, 0, 0.07);
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, .02), 0 6.7px 5.3px rgba(0, 0, 0, .028), 0 12.5px 10px rgba(0, 0, 0, .035), 0 22.3px 17.9px rgba(0, 0, 0, .042), 0 41.8px 33.4px rgba(0, 0, 0, .05), 0 100px 80px rgba(0, 0, 0, .07)
 }
 
 .api-info-section .container .tabcontent img {
-    padding-left: 16.2rem;
+    padding-left: 16.2rem
 }
 
 .api-info-section .container .tabcontent h1 {
     font-family: monospace;
     font-style: normal;
-    font-weight: normal;
-    font-size: 0.93rem;
+    font-weight: 400;
+    font-size: .93rem;
     line-height: 22px;
-    color: #FFFFFF;
-    margin: 1.3rem 0 0.06rem 0;
+    color: #fff;
+    margin: 1.3rem 0 .06rem 0
+}
+
+.copy-icon:hover {
+    filter: contrast(1.1)
+}
+
+.copy-icon {
+    float: right
 }
 
 .copy-notification {
     font-family: Montserrat;
-    color: #ffffff;
-    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    background-color: rgba(0, 0, 0, .8);
     padding: 20px;
     border-radius: 30px;
     position: fixed;
@@ -249,7 +257,7 @@ section {
     width: 150px;
     margin-top: -30px;
     margin-left: -85px;
-    text-align: center;
+    text-align: center
 }
 
 .features-section .container ul.features {
@@ -343,202 +351,91 @@ nav li a:hover {
 
 .demo-box {
     display: flex;
-    justify-content: center;
+    justify-content: center
 }
 
 .demo-input {
-    background-color: #111A33;
+    background-color: #111a33;
     border-radius: 10px;
     border: 0;
     box-shadow: #263238;
     width: 700px;
     font-size: 1.1em;
     padding-left: 20px;
-    color: #FFF;
-    font-family: Montserrat;
+    color: #fff;
+    font-family: Montserrat
 }
 
 .demo-input:focus {
-    outline: 0px;
-    border: 1px solid #6FFFE9;
-    background-color: #111A33;
+    outline: 0;
+    border: 1px solid #6fffe9;
+    background-color: #111a33;
     border-radius: 10px;
     width: 700px;
     font-size: 1.1em;
     padding-left: 20px;
-    color: #FFF;
-}
-
-.demo-custom-btn {
-    background: #6FFFE9;
-    border-radius: 8px;
-    border: 0px;
-    width: 110px !important;
-    height: 40px;
-    padding: 2px 4px;
+    color: #fff
 }
 
 #demo-submit {
-    background: transparent;
-    border: 0px;
-    cursor: pointer;
+    background: 0 0;
+    border: 0;
+    cursor: pointer
 }
 
 #submit-btn-svg {
-    transform: scale(1.1);
-}
-
-.hide {
-    display: none;
+    transform: scale(1.1)
 }
 
 .show {
-    display: block;
+    display: block
 }
 
 .white-placeholder::-webkit-input-placeholder {
-    color: #fff;
+    color: #fff
 }
 
-input,
+,
 select,
 textarea,
-textarea:focus,
-input:focus {
-    color: white;
+textarea:focus {
+    color: #fff;
     padding-left: 20px;
-    outline: 0px;
-    border: 1px solid #6FFFE9;
+    outline: 0;
+    border: 1px solid #6fffe9
 }
 
 .api-info-section {
-    flex-direction: column;
-}
-
-
-/* CSS for about use page */
-
-.about-us-con {
-    padding: 16px 0px;
-}
-
-.about-us-dv {
-    padding: 0px 20px;
-}
-
-.about-us-dv .heading h1 {
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 32px;
-    line-height: 40px;
-    text-align: center;
-    margin-top: 24px;
-    margin-bottom: 31px;
-    color: #eef5f8;
-    text-align: left;
-    max-width: 500px;
-}
-
-.about-us-dv .description p {
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 27px;
-    text-align: center;
-    color: #FFFFFF;
-    margin: 0px;
-    margin-bottom: 3rem;
+    flex-direction: column
 }
 
 .about-us-img {
-    margin-top: 4vh;
-}
-
-.dev-con {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-}
-
-.flip-card {
-    background-color: transparent;
-    margin-right: 10px;
-}
-
-.social-links {
-    margin-top: -20px;
-}
-
-.social-links img {
-    width: 100%;
-    max-width: 37px;
-    height: auto;
-}
-
-.social-links img:hover {
-    transform: scale(1.1);
-}
-
-#dev-img {
-    width: 100%;
-    max-width: 150px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.02), 0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, 0.035), 0 22.3px 17.9px rgba(0, 0, 0, 0.042), 0 41.8px 33.4px rgba(0, 0, 0, 0.05), 0 100px 80px rgba(0, 0, 0, 0.07);
-    border: 0px solid #6FFFE9;
-    padding: 1px;
-}
-
-#dev-img:hover {
-    transform: scale(1.1);
-}
-
-#dynamicText::before {
-    content: "Fast";
-    animation: infinite linear 5s type;
-    -webkit-animation-timing-function: linear;
-    /* Chrome, Safari, Opera */
-    animation-timing-function: linear;
-}
-
-#dev-about {
-    margin-top: -30px;
-}
-
-#dev-about h1 {
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 15px;
-    color: #fffffe;
-    margin: 33px 0 33px 0;
+    margin-top: 4vh
 }
 
 @keyframes type {
     10% {
         content: "Reliable";
-        color: #99CCFF;
+        color: #9cf
     }
     50% {
         content: "Accurate";
-        color: #6FFFE9;
+        color: #6fffe9
     }
     75% {
         content: "Fast";
-        color: #3dffc5;
+        color: #3dffc5
     }
 }
 
 footer {
     text-align: center;
-    color: #FFF;
+    color: #fff
 }
 
 footer a {
-    color: #FF6769;
-    text-decoration: none;
+    color: #ff6769;
+    text-decoration: none
 }
 
 @media only screen and (min-width:768px) {
@@ -553,13 +450,16 @@ footer a {
     .mobile-menu-exit {
         display: none
     }
+    .navbar {
+        position: sticky;
+        top: 0
+    }
     .navbar .container {
+        width: 100%;
         display: -ms-grid;
         display: grid;
         -ms-grid-columns: 180px auto;
         grid-template-columns: 180px auto;
-        padding-left: 100px;
-        padding-right: 100px;
         -webkit-box-pack: unset;
         -ms-flex-pack: unset;
         justify-content: unset
@@ -591,7 +491,6 @@ footer a {
     }
     .navbar nav a {
         font-size: 20px;
-        padding: 0 20px;
         color: #979dac
     }
     .navbar nav ul.primary-nav {
@@ -646,7 +545,7 @@ footer a {
         text-transform: uppercase;
         color: #858585;
         margin-top: 30px;
-        padding: 10px;
+        padding: 10px
     }
     .left-col h1 {
         font-family: Montserrat;
@@ -675,14 +574,14 @@ footer a {
         font-weight: 600;
         font-size: 40px;
         line-height: 58px;
-        margin: 21px 0px 10px 0px;
+        margin: 21px 0 10px 0;
         color: #eef5f8
     }
     .left-col .hero-cta .hero-steps-desktop-img {
         display: block;
         margin-left: auto;
         margin-right: auto;
-        width: 800px;
+        width: 45rem
     }
     .left-col .hero-cta .hero-steps-img {
         display: none
@@ -693,31 +592,29 @@ footer a {
         margin-top: 4rem;
         justify-content: space-between;
         flex-direction: row;
-        flex-wrap: wrap;
+        flex-wrap: wrap
     }
     .api-info-section .info-div {
         width: 42%;
-        border: 0px solid red;
+        border: 0 solid red
     }
     .api-info-section .code-div {
         width: 47%;
-        border: 0px solid red;
-        margin-right: 5vw;
+        border: 0 solid red;
+        margin-right: 5vw
     }
     .api-info-section .container .tabcontent {
         overflow-y: hidden;
-        /* Hide vertical scrollbar */
-        overflow-x: hidden;
-        /* Hide horizontal scrollbar */
+        overflow-x: hidden
     }
     .api-info-section .container ul.api-info-panel h1 {
-        margin-left: -20px;
+        margin-left: -20px
     }
     .api-info-section .container ul.api-info-panel p {
-        text-align: left;
+        text-align: left
     }
     .api-info-section .container .tabcontent img {
-        float: right;
+        float: right
     }
     section.features-section {
         padding: 60px 36px
@@ -734,7 +631,6 @@ footer a {
     .features-section .container li {
         width: 335px;
         height: auto;
-        margin-right: 15px;
         background: rgba(11, 19, 43, .8);
         -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, .1), 0 4px 8px rgba(0, 0, 0, .08), 0 1px 12px rgba(0, 0, 0, .04);
         box-shadow: 0 3px 6px rgba(0, 0, 0, .1), 0 4px 8px rgba(0, 0, 0, .08), 0 1px 12px rgba(0, 0, 0, .04);
@@ -760,26 +656,8 @@ footer a {
     .features-section .container li img {
         padding-top: 20px
     }
-    .about-us-con {
-        padding: 30px 10%;
-        display: flex;
-        justify-content: space-between;
-    }
-    .about-us-dv {
-        width: 52%;
-    }
     .about-us-img {
         width: 47%;
-        margin-right: -80px;
-    }
-    .about-us-dv .heading h1 {
-        font-size: 42px;
-        line-height: 50px;
-    }
-    .about-us-dv .description p {
-        text-align: left;
-    }
-    #dev-about h1 {
-        font-size: 20px;
+        margin-right: -80px
     }
 }
