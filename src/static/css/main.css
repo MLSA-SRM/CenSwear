@@ -350,7 +350,8 @@ nav li a:hover {
 
 .demo-box {
     display: flex;
-    justify-content: center
+    justify-content: center;
+    align-items: center
 }
 
 .demo-input {
@@ -359,8 +360,10 @@ nav li a:hover {
     border: 0;
     box-shadow: #263238;
     width: 700px;
+    height: 60px;
     font-size: 1.1em;
     padding-left: 20px;
+    padding-right: 60px;
     color: #fff;
     font-family: Montserrat
 }
@@ -374,6 +377,29 @@ nav li a:hover {
     font-size: 1.1em;
     padding-left: 20px;
     color: #fff
+}
+
+.demo-input:placeholder-shown+.text-clear {
+    opacity: 0;
+    /* pointer-events: none; */
+}
+
+.text-clear {
+    /* position: relative; */
+    /* top: 7px; */
+    opacity: 100%;
+    width: 25px;
+    height: 25px;
+    font-size: 15px;
+    color: black;
+    font-weight: 900;
+    border-radius: 5px;
+    margin-left: -45px;
+    margin-right: 20px;
+    font-family: 'Montserrat';
+    border: none;
+    background: #6fffe9;
+    cursor: pointer;
 }
 
 #demo-submit {

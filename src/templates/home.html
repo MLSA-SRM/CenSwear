@@ -19,10 +19,9 @@
     <p id="demo-input-error" style="color: rgb(255, 86, 86); margin: 0 auto; text-align: center; font-family: Montserrat;"></p><br>
     <div class="demo-box">
         <input id="demo-input" type="text" class="demo-input" placeholder="Enter some text here.. " autocomplete="off" />
-        <button id="demo-submit" type="submit" onclick="censor()"><img id="submit-btn-svg" alt="submit button" src="static/assets/button.svg"></button>
+        <input id="demo-clear" class="text-clear" type="button" value="X" />
+        <button id="demo-submit" onclick="censor()"><img id="submit-btn-svg" alt="submit button" src="static/assets/button.svg"></button>
         <script>
-            var demo_input = document.getElementById('demo-input');
-
             function censor() {
                 var myform = document.getElementById('demo-submit');
                 var demo_input = document.getElementById('demo-input');
@@ -44,9 +43,9 @@
                         .then(response => response.json())
                         .then((json) => {
                             console.log(json);
-                            demo_input.placeholder = json['result'];
-                            demo_input.value = "";
-                            demo_input.classList.add("white-placeholder");
+                            demo_input.value = json['result'];
+                            // demo_input.value = "";
+                            // demo_input.classList.add("white-placeholder");
                             //submit_btn_svg.src = "static/assets/button.svg";
                             myform.disabled = false;
                         });
@@ -56,9 +55,24 @@
                     demo_input_error.innerHTML = "Please enter a valid input";
                 }
             }
-            demo_input.addEventListener("keydown", function(e) {
+
+            function clear() {
+                // console.log("clearing");
+                var demo_input = document.getElementById('demo-input');
+                demo_input.value = "";
+
+            }
+
+            document.getElementById('demo-clear').addEventListener("click", function(e) {
+                clear();
+            });
+
+            document.getElementById('demo-input').addEventListener("keydown", function(e) {
                 if (e.code === "Enter") { //checks whether the pressed key is "Enter"
                     censor();
+                }
+                if (e.code === "Escape") { //checks whether the pressed key is "Escape"
+                    clear();
                 }
             });
         </script>
