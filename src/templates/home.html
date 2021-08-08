@@ -87,7 +87,6 @@
 
             <input type="image" src="static/assets/Copy-Icon.svg" class="copy-icon" alt="Copy the associated code snippet" onclick='copy_code()'>
             <div id="copy-text" style="display: none;" class="copy-notification">Copied to clipboard</div>
-
             <h1 id="code"> </h1>
         </div>
 
@@ -118,7 +117,7 @@
                         code.innerText = `import requests
                             text = "Hello There!"
                             url = "https://profanity-filter-api.azurewebsites.net/filter"
-                            r = requests.post(url, data={"text":text})
+                            r = requests.post(url, json={"text":text})
                             print(r.status_code)
                             print(r.text)`
                         break;
@@ -182,7 +181,7 @@
                 setTimeout(function() {
                     var copytext = document.getElementById("copy-text");
                     copytext.style.display = "none";
-                }, 2000);
+                }, 1000);
             }
         </script>
     </div>
@@ -200,7 +199,7 @@
                 <p class="card-feature-info ">CenSwear detects and censors swear words and profanities from chat and text messages based on an internal profanity list.</p>
             </li>
             <li class="card-2-mail ">
-                <img src="static/assets/mail-alert.svg " alt="Feature 2 Real-time mail censoring ">
+                <img src="static/assets/mail-alert.svg " alt="Feature 2 Real-time censoring ">
                 <h1>Real-time censoring of expletives</h1>
                 <p class="card-feature-info ">CenSwear can even provide real-time redaction of swear words while emails and documents are being typed.</p>
             </li>
@@ -210,9 +209,9 @@
                 <p class="card-feature-info ">CenSwear ensures that not one single offensive message slips through its filters, creating a safe and productive environment for the users.</p>
             </li>
             <li class="card-4-customer ">
-                <img src="static/assets/customer.svg " alt="Feature 4 Customer care and fast response ">
+                <img src="static/assets/customer.svg " alt="Feature 4 Multilingual">
                 <h1>Bilingual</h1>
-                <p class="card-feature-info ">We’ve designed CenSwear to accurately detect profanity in both English and Hindi</p>
+                <p class="card-feature-info ">We’ve programmed CenSwear to accurately detect profanity in both English and Hindi</p>
             </li>
         </ul>
     </div>

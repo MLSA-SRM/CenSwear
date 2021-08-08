@@ -247,16 +247,14 @@ section {
 .copy-notification {
     font-family: Montserrat;
     color: #fff;
-    background-color: rgba(0, 0, 0, .8);
-    padding: 20px;
-    border-radius: 30px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 150px;
-    margin-top: -30px;
-    margin-left: -85px;
-    text-align: center
+    background-color: rgb(11, 19, 43);
+    padding: 5px;
+    border-radius: 5px;
+    height: auto;
+    text-align: center;
+    width: auto;
+    /* position: absolute; */
+    float: right;
 }
 
 .features-section .container ul.features {
@@ -394,7 +392,6 @@ nav li a:hover {
     color: #fff
 }
 
-,
 select,
 textarea,
 textarea:focus {
