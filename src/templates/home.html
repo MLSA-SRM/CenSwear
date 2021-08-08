@@ -66,7 +66,6 @@
 </section>
 
 <section class="api-info-section">
-    <div id="copy-text" style="display: none;" class="copy-notification">Copied to clipboard</div>
     <div class="container info-div">
 
         <ul class="api-info-panel">
@@ -78,109 +77,100 @@
     <div class="container code-div">
 
         <div class="tab">
-            <button class="tablinks button-active" id='curl-button' onclick="show('curl')">Curl</button>
+            <button class="tablinks" id='curl-button' onclick="show('curl')">Curl</button>
             <button class="tablinks" id='python-button' onclick="show('python')">Python</button>
             <button class="tablinks" id='js-button' onclick="show('js')">JavaScript/AJAX</button>
             <button class="tablinks" id='axios-button' onclick="show('axios')">Axios</button>
         </div>
 
-        <div id="axios" class="tabcontent">
+        <div id="code-box" class="tabcontent">
 
-            <input type="image" src="static/assets/Copy-Icon.svg" class="copy-icon" alt="Copy the associated code snippet" onclick='copyElementText("axios-code")'>
+            <input type="image" src="static/assets/Copy-Icon.svg" class="copy-icon" alt="Copy the associated code snippet" onclick='copy_code()'>
+            <div id="copy-text" style="display: none;" class="copy-notification">Copied to clipboard</div>
 
-            <h1 id="axios-code">
-                var axios = require("axios"); <br>
-                <br> axios.post("https://profanity-filter-api.azurewebsites.net/filter", { <br> text: "Hello There!" <br> }).then(function(response) { <br> console.log(response.data['result']); <br> }) <br> .catch(function(error) { <br> console.log(error);
-                <br> }); <br>
-            </h1>
+            <h1 id="code"> </h1>
         </div>
 
-        <div id="python" class="tabcontent">
-
-            <input type="image" src="static/assets/Copy-Icon.svg" class="copy-icon" alt="Copy the associated code snippet" onclick='copyElementText("python-code")'>
-
-            <h1 id="python-code">
-                import requests<br> text = "Hello There!"<br> url = "https://profanity-filter-api.azurewebsites.net/filter"<br> r = requests.post(url, json={"text":text})<br> print(r.status_code)
-                <br> print(r.text)
-            </h1>
-        </div>
-
-        <div id="js" class="tabcontent">
-
-            <input type="image" src="static/assets/Copy-Icon.svg" class="copy-icon" alt="Copy the associated code snippet" onclick='copyElementText("js-code")'>
-
-            <h1 id="js-code">
-                var url = "https://profanity-filter-api.azurewebsites.net/filter";<br>
-                <br> var xhr = new XMLHttpRequest();<br> xhr.open("POST", url);<br>
-                <br> xhr.setRequestHeader("Content-Type", "application/json");<br>
-                <br> xhr.onreadystatechange = function () {<br> if (xhr.readyState === 4) {<br> console.log(xhr.status);
-                <br> console.log(xhr.responseText);
-                <br> }};
-                <br>
-                <br> var data = '{"text":"Hello There!"}';<br>
-                <br> xhr.send(data);
-                <br>
-                <br>
-            </h1>
-
-        </div>
-
-        <div id="curl" class="tabcontent" style="display: block;">
-
-            <input type="image" src="static/assets/Copy-Icon.svg" class="copy-icon" alt="Copy the associated code snippet" onclick='copyElementText("curl-code")'>
-
-            <h1 id="curl-code">
-                curl -X GET https://profanity-filter-api.azurewebsites.net/filter?text="Hello There!"
-                <br> <br> curl -X POST https://profanity-filter-api.azurewebsites.net/filter -H "Content-Type: application/json" -d "{\"text\":\"Hello There!\"}"
-            </h1>
-        </div>
 
         <script>
+            window.onload = (function() {
+                show('curl');
+            });
+
             function show(lang) {
-                var pythonCode = document.getElementById("python");
-                var jsCode = document.getElementById("js");
-                var curlCode = document.getElementById("curl");
-                var axiosCode = document.getElementById("axios");
+                var code_box = document.getElementById("code");
 
-                var python_button = document.getElementById("python-button");
-                var js_button = document.getElementById("js-button");
-                var curl_button = document.getElementById("curl-button");
-                var axios_button = document.getElementById("axios-button");
+                var langs = [
+                    'curl',
+                    'python',
+                    'js',
+                    'axios'
+                ]
 
-                python_button.classList.remove('button-active');
-                js_button.classList.remove('button-active');
-                curl_button.classList.remove('button-active');
-                axios_button.classList.remove('button-active');
+                for (var i = 0; i < langs.length; i++) {
+                    document.getElementById(langs[i] + '-button').classList.remove('button-active');
+                    //Do something
+                }
 
-                pythonCode.style.display = "none";
-                jsCode.style.display = "none";
-                curlCode.style.display = "none";
-                axiosCode.style.display = "none";
-
+                // console.log(lang)
                 switch (lang) {
                     case 'python':
-                        pythonCode.style.display = "block";
-                        python_button.classList.add('button-active')
+                        code.innerText = `import requests
+                            text = "Hello There!"
+                            url = "https://profanity-filter-api.azurewebsites.net/filter"
+                            r = requests.post(url, data={"text":text})
+                            print(r.status_code)
+                            print(r.text)`
                         break;
                     case 'js':
-                        jsCode.style.display = "block";
-                        js_button.classList.add('button-active')
+                        code.innerText = `var url = "https://profanity-filter-api.azurewebsites.net/filter";
+
+                                var xhr = new XMLHttpRequest();
+                                xhr.open("POST", url);
+
+                                xhr.setRequestHeader("Content-Type", "application/json");
+
+                                xhr.onreadystatechange = function () {
+                                if (xhr.readyState === 4) {
+                                console.log(xhr.status);
+                                console.log(xhr.responseText);
+                                }};
+
+                                var data = '{"text":"Hello There!"}';
+
+                                xhr.send(data);
+
+                                `
                         break;
                     case 'curl':
-                        curlCode.style.display = "block";
-                        curl_button.classList.add('button-active')
+                        code.innerText = `
+                        curl -X GET https://profanity-filter-api.azurewebsites.net/filter?text="Hello There!"
+
+                        curl -X POST https://profanity-filter-api.azurewebsites.net/filter -H "Content-Type: application/json" -d "{\"text\":\"Hello There!\"}"
+                        `
                         break;
 
                     case 'axios':
-                        axiosCode.style.display = "block";
-                        axios_button.classList.add('button-active')
+                        code.innerText = `var axios = require("axios");
+
+                                    axios.post("https://profanity-filter-api.azurewebsites.net/filter", {
+                                    text: "Hello There!"
+                                    }).then(function(response) {
+                                    console.log(response.data['result']);
+                                    })
+                                    .catch(function(error) {
+                                    console.log(error);
+                                    });
+                                    `
                         break;
 
                 }
+                document.getElementById(lang + '-button').classList.add('button-active');
+
             }
 
-            function copyElementText(id) {
-                var text = document.getElementById(id).innerText;
+            function copy_code() {
+                var text = document.getElementById("code").innerText;
                 var elem = document.createElement("textarea");
                 var copytext = document.getElementById("copy-text");
                 document.body.appendChild(elem);

@@ -15,7 +15,7 @@ body {
 
 .navbar {
     background: #0b132b;
-    padding: auto
+    padding: 16px 24px
 }
 
 .navbar .logo {
@@ -210,7 +210,6 @@ section {
 }
 
 .api-info-section .container .tabcontent {
-    display: none;
     padding: 1.3rem;
     height: 27.3rem;
     background: #040812;
@@ -451,18 +450,18 @@ footer a {
         display: none
     }
     .navbar {
-        position: sticky;
+        position: relative;
         top: 0
     }
     .navbar .container {
-        width: 100%;
         display: -ms-grid;
         display: grid;
         -ms-grid-columns: 180px auto;
         grid-template-columns: 180px auto;
         -webkit-box-pack: unset;
         -ms-flex-pack: unset;
-        justify-content: unset
+        justify-content: unset;
+        padding: 0px 100px
     }
     .navbar .container a.logo {
         padding-top: 4px
@@ -491,7 +490,8 @@ footer a {
     }
     .navbar nav a {
         font-size: 20px;
-        color: #979dac
+        color: #979dac;
+        padding: 0 20px;
     }
     .navbar nav ul.primary-nav {
         margin: 0
