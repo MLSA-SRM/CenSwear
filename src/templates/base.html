@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock title %}</title>
+    <title>CenSwear | {% block title %}{% endblock title %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="icon" href="static/assets/favicon.ico" />
 
@@ -22,14 +22,14 @@
 
     <div class="navbar">
         <div class="container">
-            <a class="logo" href="#"><span>Cen</span>Swear</a>
+            <a class="logo" href="./"><span>Cen</span>Swear</a>
             <img id="mobile-cta" class="mobile-menu" src="static/assets/menu-1.svg" alt="Open Navigation" onclick="showMobNav()">
             <nav>
                 <img id="mobile-exit" class="mobile-menu-exit" src="static/assets/x-circle-1.svg" alt="Close Navigation Bar">
                 <ul class="primary-nav">
-                    <li class="current" id="homenav"><a href="/?a=1">Home</a></li>
+                    <li class="current" id="homenav"><a href="./">Home</a></li>
                     <li><a href="https://medium.com/mlsa-srm" target="_blank">Blog</a></li>
-                    <li id="aboutnav"><a href="/aboutus?a=2" >About Us</a></li>
+                    <li id="aboutnav"><a href="/about">About Us</a></li>
                 </ul>
 
                 <ul class="secondary-nav">
@@ -50,20 +50,20 @@
     </footer>
     <script>
         /* for getting current active url */
-        var url = window.location.href 
-        var captured = /a=([^&]+)/.exec(url)[1];
-        var result = captured ? captured : 'myDefaultValue';
-        switch(result) {
-            case '1':
-                document.getElementById("homenav").classList.add("current");
-                document.getElementById("aboutnav").classList.remove("current");
-                break;
+        // var url = window.location.href
+        // var captured = /a=([^&]+)/.exec(url)[1];
+        // var result = captured ? captured : 'myDefaultValue';
+        // switch (result) {
+        //     case '1':
+        //         document.getElementById("homenav").classList.add("current");
+        //         document.getElementById("aboutnav").classList.remove("current");
+        //         break;
 
-            case '2':
-                document.getElementById("aboutnav").classList.add("current");
-                document.getElementById("homenav").classList.remove("current");
-                break;
-        }
+        //     case '2':
+        //         document.getElementById("aboutnav").classList.add("current");
+        //         document.getElementById("homenav").classList.remove("current");
+        //         break;
+        // }
 
         function showMobNav() {
             const mobileBtn = document.getElementById('mobile-cta')

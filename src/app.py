@@ -66,7 +66,7 @@ def filter_string(msg, sec_run=False):
 def index():
     return render_template('home.html')
 
-@app.route('/aboutus')
+@app.route('/about')
 def aboutus():
     return render_template('about.html')
 
