@@ -99,7 +99,7 @@
             <img src="static/assets/Copy-Icon.svg" class="copy-icon" alt="Copy the associated code snippet" onclick='copyElementText("python-code")'>
 
             <h1 id="python-code">
-                import requests<br> text = "Hello There!"<br> url = "https://profanity-filter-api.azurewebsites.net/filter"<br> r = requests.post(url, data={"text":text})<br> print(r.status_code)
+                import requests<br> text = "Hello There!"<br> url = "https://profanity-filter-api.azurewebsites.net/filter"<br> r = requests.post(url, json={"text":text})<br> print(r.status_code)
                 <br> print(r.text)
             </h1>
         </div>
