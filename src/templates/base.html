@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
 
 </head>
@@ -27,9 +29,9 @@
             <nav>
                 <img id="mobile-exit" class="mobile-menu-exit" src="static/assets/x-circle-1.svg" alt="Close Navigation Bar">
                 <ul class="primary-nav">
-                    <li class="current" id="homenav"><a href="./">Home</a></li>
-                    <li><a href="https://medium.com/mlsa-srm" target="_blank">Blog</a></li>
-                    <li id="aboutnav"><a href="/about">About Us</a></li>
+                    <li id="index"><a href="./">Home</a></li>
+                    <li id="blog"><a href="https://medium.com/mlsa-srm" target="_blank">Blog</a></li>
+                    <li id="aboutus"><a href="/about">About Us</a></li>
                 </ul>
 
                 <ul class="secondary-nav">
@@ -48,6 +50,11 @@
         <h4>Crafted with ❤️ by <a href="https://msclubsrm.in/" target="_blank">MLSA SRM</a></h4>
     </footer>
     <script>
+        $(document).ready(function() {
+            $("#{{request.endpoint}}").addClass("current");
+        })
+
+
         function showMobNav() {
             const mobileBtn = document.getElementById('mobile-cta')
             nav = document.querySelector('nav');
