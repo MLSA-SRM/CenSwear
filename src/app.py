@@ -12,7 +12,6 @@ from flask_limiter.util import get_remote_address
 from six import class_types
 
 
-os.chdir(os.path.dirname(sys.argv[0]))
 
 app = Flask(__name__)
 
@@ -22,7 +21,7 @@ load_dotenv()
 
 WORDLIST_URL = os.environ['WORDLIST_URL']
 
-clean_wordlist = open('clean-dict.txt').read().split()
+clean_wordlist = open(os.path.join(os.path.dirname(__file__),'clean-dict.txt')).read().split()
 
 wordlist = requests.get(WORDLIST_URL).json()
 
@@ -115,14 +114,11 @@ def aboutus():
 
 
 @ limiter.limit('120 per minute')
-@ app.route('/filter', methods=['GET', 'POST'])
+@ app.route('/filter', methods=['POST'])
 def filter():
-    if request.method == 'POST':
-        if not request.json or not 'text' in request.json:
-            abort(400)
-        string = request.json.get("text", "")
-    else:
-        string = request.args.get("text", "")
+    if not request.json or not 'text' in request.json:
+        abort(400)
+    string = request.json.get("text", "")
     return jsonify({'result': filter_string(string)}), 200
 
 
