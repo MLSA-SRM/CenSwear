@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
 
 </head>
@@ -27,9 +29,9 @@
             <nav>
                 <img id="mobile-exit" class="mobile-menu-exit" src="static/assets/x-circle-1.svg" alt="Close Navigation Bar">
                 <ul class="primary-nav">
-                    <li class="current" id="homenav"><a href="./">Home</a></li>
-                    <li><a href="https://medium.com/mlsa-srm" target="_blank">Blog</a></li>
-                    <li id="aboutnav"><a href="/about">About Us</a></li>
+                    <li id="index"><a href="./">Home</a></li>
+                    <li id="blog"><a href="https://medium.com/mlsa-srm" target="_blank">Blog</a></li>
+                    <li id="aboutus"><a href="/about">About Us</a></li>
                 </ul>
 
                 <ul class="secondary-nav">
@@ -38,7 +40,6 @@
                             <img id='github-cta-logo' class="github-logo" src="static/assets/github-icon.svg" alt="Github logo"> Github
                         </a>
                     </li>
-                    <!-- <li class="demo-cta"><a href="#">Demo</a></li> -->
                 </ul>
             </nav>
         </div>
@@ -49,21 +50,10 @@
         <h4>Crafted with ❤️ by <a href="https://msclubsrm.in/" target="_blank">MLSA SRM</a></h4>
     </footer>
     <script>
-        /* for getting current active url */
-        // var url = window.location.href
-        // var captured = /a=([^&]+)/.exec(url)[1];
-        // var result = captured ? captured : 'myDefaultValue';
-        // switch (result) {
-        //     case '1':
-        //         document.getElementById("homenav").classList.add("current");
-        //         document.getElementById("aboutnav").classList.remove("current");
-        //         break;
+        $(document).ready(function() {
+            $("#{{request.endpoint}}").addClass("current");
+        })
 
-        //     case '2':
-        //         document.getElementById("aboutnav").classList.add("current");
-        //         document.getElementById("homenav").classList.remove("current");
-        //         break;
-        // }
 
         function showMobNav() {
             const mobileBtn = document.getElementById('mobile-cta')
