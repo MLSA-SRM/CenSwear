@@ -12,7 +12,7 @@ from flask_limiter.util import get_remote_address
 
 app = Flask(__name__)
 
-limiter = Limiter(app,key_func=get_remote_address)
+limiter = Limiter(app, key_func=get_remote_address)
 
 # os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
@@ -66,13 +66,11 @@ def filter_string(msg, sec_run=False):
 def index():
     return render_template('home.html')
 
+
 @app.route('/about')
 def aboutus():
     return render_template('about.html')
 
-@app.route('/wordlist')
-def wordlist():
-    return '<br>'.join(filter_words)
 
 @limiter.limit('120 per minute')
 @app.route('/filter', methods=['GET', 'POST'])
