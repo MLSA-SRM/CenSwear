@@ -1,4 +1,5 @@
 import os
+import sys
 from dotenv import load_dotenv
 import random
 import re
@@ -11,6 +12,8 @@ from flask_limiter.util import get_remote_address
 from six import class_types
 
 
+os.chdir(os.path.dirname(sys.argv[0]))
+
 app = Flask(__name__)
 
 limiter = Limiter(app, key_func=get_remote_address)
@@ -18,13 +21,8 @@ limiter = Limiter(app, key_func=get_remote_address)
 load_dotenv()
 
 WORDLIST_URL = os.environ['WORDLIST_URL']
-CLEAN_WORDLIST_URL = os.environ.get('CLEAN_WORDLIST_URL')
 
-if CLEAN_WORDLIST_URL:
-    clean_wordlist = requests.get(CLEAN_WORDLIST_URL).text.split()
-else:
-    print('Clean Wordlist URL not provided.')
-    clean_wordlist = []
+clean_wordlist = open('clean-dict.txt').read().split()
 
 wordlist = requests.get(WORDLIST_URL).json()
 
@@ -38,7 +36,6 @@ def first_run(s):
     for word in wordlist:
         search = re.search(r'\b({})\b'.format(word), s, re.IGNORECASE)
         if search:
-            print(search)
             censor_indices.append((search.start(1), search.end(1)))
             cen = ''.join(
                 random.choice(censor_symbols) for a in range(len(search.group())))
@@ -58,7 +55,6 @@ def second_run(s):
             continue
         search = re.search(r'{}'.format(word), s, re.IGNORECASE)
         if search:
-            print(search)
             cen = ''.join(
                 random.choice(censor_symbols) for a in range(len(search.group())))
             s = re.sub(r'({})'.format(word),
@@ -96,7 +92,6 @@ def get_clean_indices(s):
         if i.lower() in clean_wordlist:
             for m in re.finditer(i.lower(), s):
                 clean_indices.extend(list(range(m.start(), m.end())))
-    print(clean_indices)
     return clean_indices
 
 
