@@ -4,6 +4,7 @@ CenSwear is a Python based profanity filter API. CenSwear is a simple, free, and
 ![](https://img.shields.io/github/forks/MLSA-SRM/profanity-filter-api?color=green&style=for-the-badge)
 ![](https://img.shields.io/github/stars/MLSA-SRM/profanity-filter-api?color=silver&style=for-the-badge)
 ![](https://img.shields.io/github/license/MLSA-SRM/profanity-filter-api?color=yellow&style=for-the-badge)
+
 ## How it works
 <img src="https://i.imgur.com/YYiEfI4.gif" align="center">
 
