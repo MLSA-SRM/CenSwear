@@ -10,7 +10,13 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0;
+    margin-bottom: 60px;
     font-family: Montserrat
+}
+
+html {
+    position: relative;
+    min-height: 100%;
 }
 
 .navbar {
@@ -551,7 +557,11 @@ textarea:focus {
 
 footer {
     text-align: center;
-    color: #fff
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
 }
 
 footer a {

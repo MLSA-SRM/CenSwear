@@ -80,7 +80,7 @@
 
         <ul class="api-info-panel">
             <h1>Easy Integration</h1>
-            <p>CenSwear supports POST requests.<br><br>Just copy these prefabricated snippets and you will be ready to go!</p>
+            <p>CenSwear is really simple and easy to integrate!<br><br>Just copy these prefabricated snippets and you will be ready to go!</p>
         </ul>
     </div>
 
@@ -153,8 +153,6 @@
                         break;
                     case 'curl':
                         code.innerText = `
-                        curl -X GET https://profanity-filter-api.azurewebsites.net/filter?text="Hello There!"
-
                         curl -X POST https://profanity-filter-api.azurewebsites.net/filter -H "Content-Type: application/json" -d "{\"text\":\"Hello There!\"}"
                         `
                         break;
