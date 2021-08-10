@@ -1,5 +1,6 @@
 # CenSwear <img src="https://i.ibb.co/LpTqC8H/censwear.png" align="right">
-CenSwear is a Python based profanity filter API. CenSwear is a simple, free, and reliable language understanding API designed to recognize and remove profanity, obscenity, and other unwanted text. It’s a technology you can swear by!
+CenSwear is a Python based profanity filter API. CenSwear is a simple, free, and reliable language understanding API designed to recognize and remove profanity, obscenity, and other unwanted text. It’s a technology you can swear by!<br>
+Check out the live site [CenSwear](https://profanity-filter-api.azurewebsites.net/)
 
 ![](https://img.shields.io/github/forks/MLSA-SRM/profanity-filter-api?color=green&style=for-the-badge)
 ![](https://img.shields.io/github/stars/MLSA-SRM/profanity-filter-api?color=silver&style=for-the-badge)
@@ -10,7 +11,7 @@ CenSwear is a Python based profanity filter API. CenSwear is a simple, free, and
 
 ## How to use
 * Python <br>
-  <img src="https://i.imgur.com/l0uCIIW.png" width="700">
+  <img src="https://i.imgur.com/r8Pmn50.png" width="700">
 
 ## Built With:
 | Software/ Language | Version |
