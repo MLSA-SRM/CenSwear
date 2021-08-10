@@ -1,15 +1,17 @@
 # CenSwear <img src="https://i.ibb.co/LpTqC8H/censwear.png" align="right">
-CenSwear is a Python based profanity filter API. CenSwear is a simple, free, and reliable language understanding API designed to recognize and remove profanity, obscenity, and other unwanted text. It’s a technology you can swear by!
+CenSwear is a Python based profanity filter API. CenSwear is a simple, free, and reliable language understanding API designed to recognize and remove profanity, obscenity, and other unwanted text. It’s a technology you can swear by!<br>
+Check out the live site [CenSwear](https://profanity-filter-api.azurewebsites.net/)
 
 ![](https://img.shields.io/github/forks/MLSA-SRM/profanity-filter-api?color=green&style=for-the-badge)
 ![](https://img.shields.io/github/stars/MLSA-SRM/profanity-filter-api?color=silver&style=for-the-badge)
 ![](https://img.shields.io/github/license/MLSA-SRM/profanity-filter-api?color=yellow&style=for-the-badge)
+
 ## How it works
-<img src="https://i.imgur.com/YBsxhrV.gif" align="center">
+<img src="https://i.imgur.com/YYiEfI4.gif" align="center">
 
 ## How to use
 * Python <br>
-  <img src="https://i.imgur.com/l0uCIIW.png" width="700">
+  <img src="https://i.imgur.com/r8Pmn50.png" width="700">
 
 ## Built With:
 | Software/ Language | Version |
@@ -55,6 +57,24 @@ Project Organization
             ├── assets     <- contains svg images and backgrounds 
             └── css        <- The css files for the web app
 
+## How to get started
+* Clone this repository 
+```
+git clone https://github.com/MLSA-SRM/profanity-filter-api.git
+```
+* Install dependencies 
+```
+pip install -r requirements.txt
+```
+* Go to the app root folder 
+```
+cd src
+```
+* Run the App  `python app.py` or `flask run`
+
+### Setting up the filter
+* `WORDLIST_URL` on `22|app.py` is the api endpoint which returns a array of swear words, you can remove this line and replace the `wordlist` on `26|app.py` with your custom list of swear words
+* `clean-dict.txt` contains the words which should not get censored
 
 ## Contributors:
 <table>
