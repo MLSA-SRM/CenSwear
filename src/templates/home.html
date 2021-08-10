@@ -153,8 +153,6 @@
                         break;
                     case 'curl':
                         code.innerText = `
-                        curl -X GET https://profanity-filter-api.azurewebsites.net/filter?text="Hello There!"
-
                         curl -X POST https://profanity-filter-api.azurewebsites.net/filter -H "Content-Type: application/json" -d "{\"text\":\"Hello There!\"}"
                         `
                         break;
