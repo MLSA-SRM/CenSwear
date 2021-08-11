@@ -62,7 +62,7 @@ Project Organization
 ## How to get started
 To use this project, follow these steps:
 
-* Make a `.env` file having same structure as `.env.sample`
+* Make a `.env` file having same structure as `.env.sample` inside the `src` folder
 * Fill in the `FILTER_WORDLIST_URL` and `CLEAN_WORDLIST_URL` variables
 * Clone this repository 
 ```
