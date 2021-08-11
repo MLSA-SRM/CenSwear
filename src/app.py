@@ -19,20 +19,21 @@ limiter = Limiter(app, key_func=get_remote_address)
 
 load_dotenv()
 
-WORDLIST_URL = os.environ['WORDLIST_URL']
+FILTER_WORDLIST_URL = os.environ['FILTER_WORDLIST_URL']
+CLEAN_WORDLIST_URL = os.environ['CLEAN_WORDLIST_URL']
 
-clean_wordlist = open(os.path.join(os.path.dirname(__file__),'clean-dict.txt')).read().split()
 
-wordlist = requests.get(WORDLIST_URL).json()
+filter_wordlist = requests.get(FILTER_WORDLIST_URL).json()
+clean_wordlist = requests.get(CLEAN_WORDLIST_URL).text.split()
 
 censor_symbols = '*'
 
 print('Clean List:',len(clean_wordlist))
-print('Filter List:',len(wordlist))
+print('Filter List:',len(filter_wordlist))
 
 def first_run(s):
     censor_indices = []
-    for word in wordlist:
+    for word in filter_wordlist:
         search = re.search(r'\b({})\b'.format(word), s, re.IGNORECASE)
         if search:
             censor_indices.append((search.start(1), search.end(1)))
@@ -49,7 +50,7 @@ def first_run(s):
 def second_run(s):
     space_indices = [m.start() for m in re.finditer(' ', s)]
     s = s.replace(' ', '')
-    for word in wordlist:
+    for word in filter_wordlist:
         if word.endswith(r'\w*'):
             continue
         search = re.search(r'{}'.format(word), s, re.IGNORECASE)

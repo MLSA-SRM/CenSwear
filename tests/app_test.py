@@ -1,4 +1,4 @@
-from src.app import app, WORDLIST_URL, censor_symbols
+from src.app import app, censor_symbols
 import json
 import os
 import re

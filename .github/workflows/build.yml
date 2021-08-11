@@ -14,7 +14,8 @@ jobs:
   build:
     if: github.event.pull_request.merged == false
     env:
-      WORDLIST_URL: ${{ secrets.WORDLIST_URL }}
+      FILTER_WORDLIST_URL: ${{ secrets.FILTER_WORDLIST_URL }}
+      CLEAN_WORDLIST_URL: ${{ secrets.CLEAN_WORDLIST_URL }}
 
     runs-on: ubuntu-latest
 

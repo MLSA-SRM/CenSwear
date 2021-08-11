@@ -57,7 +57,13 @@ Project Organization
             ├── assets     <- contains svg images and backgrounds 
             └── css        <- The css files for the web app
 
+
+
 ## How to get started
+To use this project, follow these steps:
+
+* Make a `.env` file having same structure as `.env.sample` inside the `src` folder
+* Fill in the `FILTER_WORDLIST_URL` and `CLEAN_WORDLIST_URL` variables
 * Clone this repository 
 ```
 git clone https://github.com/MLSA-SRM/profanity-filter-api.git
@@ -71,10 +77,6 @@ pip install -r requirements.txt
 cd src
 ```
 * Run the App  `python app.py` or `flask run`
-
-### Setting up the filter
-* `WORDLIST_URL` on `22|app.py` is the api endpoint which returns a array of swear words, you can remove this line and replace the `wordlist` on `26|app.py` with your custom list of swear words
-* `clean-dict.txt` contains the words which should not get censored
 
 ## Contributors:
 <table>
