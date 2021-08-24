@@ -6,13 +6,11 @@ name: Build and Test
 on:
   push:
     branches: [main]
-    types: [opened]
   pull_request:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
   build:
-    if: github.event.pull_request.merged == false
     env:
       FILTER_WORDLIST_URL: ${{ secrets.FILTER_WORDLIST_URL }}
       CLEAN_WORDLIST_URL: ${{ secrets.CLEAN_WORDLIST_URL }}

@@ -22,6 +22,8 @@ load_dotenv()
 FILTER_WORDLIST_URL = os.environ['FILTER_WORDLIST_URL']
 CLEAN_WORDLIST_URL = os.environ['CLEAN_WORDLIST_URL']
 
+filter_wordlist = []
+clean_wordlist = []
 
 filter_wordlist = requests.get(FILTER_WORDLIST_URL).json()
 clean_wordlist = requests.get(CLEAN_WORDLIST_URL).text.split()
@@ -122,6 +124,16 @@ def filter():
     string = request.json.get("text", "")
     return jsonify({'result': filter_string(string)}), 200
 
+@ app.route('/reload')
+def reload():
+    try:
+        global filter_wordlist
+        global clean_wordlist
+        filter_wordlist = requests.get(FILTER_WORDLIST_URL).json()
+        clean_wordlist = requests.get(CLEAN_WORDLIST_URL).text.split()
+        return "Reload Successful"
+    except:
+        abort(400)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)

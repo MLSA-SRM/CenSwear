@@ -1,10 +1,10 @@
 # CenSwear <img src="https://i.ibb.co/LpTqC8H/censwear.png" align="right">
 CenSwear is a Python based profanity filter API. CenSwear is a simple, free, and reliable language understanding API designed to recognize and remove profanity, obscenity, and other unwanted text. It’s a technology you can swear by!<br><br>
-Check out the live site - [**CenSwear**](https://profanity-filter-api.azurewebsites.net/)
+Check out the live site - [**CenSwear**](https://censwear.msclubsrm.in/)
 
-![](https://img.shields.io/github/forks/MLSA-SRM/profanity-filter-api?color=green&style=for-the-badge)
-![](https://img.shields.io/github/stars/MLSA-SRM/profanity-filter-api?color=silver&style=for-the-badge)
-![](https://img.shields.io/github/license/MLSA-SRM/profanity-filter-api?color=yellow&style=for-the-badge)
+![](https://img.shields.io/github/forks/MLSA-SRM/CenSwear?color=green&style=for-the-badge)
+![](https://img.shields.io/github/stars/MLSA-SRM/CenSwear?color=silver&style=for-the-badge)
+![](https://img.shields.io/github/license/MLSA-SRM/CenSwear?color=yellow&style=for-the-badge)
 
 ## How it works
 <img src="https://i.imgur.com/YYiEfI4.gif" align="center">
@@ -66,7 +66,7 @@ To use this project, follow these steps:
 * Fill in the `FILTER_WORDLIST_URL` and `CLEAN_WORDLIST_URL` variables
 * Clone this repository 
 ```
-git clone https://github.com/MLSA-SRM/profanity-filter-api.git
+git clone https://github.com/MLSA-SRM/CenSwear.git
 ```
 * Install dependencies 
 ```

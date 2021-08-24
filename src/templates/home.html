@@ -1,4 +1,5 @@
-{% extends 'base.html' %} {% block title %} Home {% endblock title %} {% block content %}
+{% extends 'base.html' %} {% block title %} Home {% endblock title %} {% block description %} The Official Website for CenSwear, a simple, free, and reliable language understanding API designed to recognize and remove profanity, obscenity, and other unwanted
+text. {% endblock description %} {% block content %}
 
 <section class="hero">
     <div class="container">
@@ -126,13 +127,13 @@
                     case 'python':
                         code.innerText = `import requests
                             text = "Hello There!"
-                            url = "https://profanity-filter-api.azurewebsites.net/filter"
+                            url = "https://censwear.msclubsrm.in/filter"
                             r = requests.post(url, json={"text":text})
                             print(r.status_code)
                             print(r.text)`
                         break;
                     case 'js':
-                        code.innerText = `var url = "https://profanity-filter-api.azurewebsites.net/filter";
+                        code.innerText = `var url = "https://censwear.msclubsrm.in/filter";
 
                                 var xhr = new XMLHttpRequest();
                                 xhr.open("POST", url);
@@ -153,14 +154,14 @@
                         break;
                     case 'curl':
                         code.innerText = `
-                        curl -X POST https://profanity-filter-api.azurewebsites.net/filter -H "Content-Type: application/json" -d "{\"text\":\"Hello There!\"}"
+                        curl -X POST https://censwear.msclubsrm.in/filter -H "Content-Type: application/json" -d "{\"text\":\"Hello There!\"}"
                         `
                         break;
 
                     case 'axios':
                         code.innerText = `var axios = require("axios");
 
-                                    axios.post("https://profanity-filter-api.azurewebsites.net/filter", {
+                                    axios.post("https://censwear.msclubsrm.in/filter", {
                                     text: "Hello There!"
                                     }).then(function(response) {
                                     console.log(response.data['result']);
