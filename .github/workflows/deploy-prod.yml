@@ -5,7 +5,7 @@
 name: Build and deploy Python app to Azure Web App - mlsasrm-censwear
 
 on:
-  pull_request:
+  pull_request_target:
     types: [closed]
     branches: [main]
 
@@ -15,10 +15,13 @@ jobs:
       FILTER_WORDLIST_URL: ${{ secrets.FILTER_WORDLIST_URL }}
       CLEAN_WORDLIST_URL: ${{ secrets.CLEAN_WORDLIST_URL }}
 
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
       - name: Set up Python 3.9
         uses: actions/setup-python@v2
         with:
