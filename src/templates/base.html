@@ -6,8 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CenSwear | {% block title %}{% endblock title %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+    <meta name="description" content="{% block description %}{% endblock description %}">
+    <meta name="keywords" content="CenSwear,Free,Profanity,Filter,API,Python,Regex,Microsoft,Learn,Ambassadors,MLSA,Student,Partners,Club,SRM,MSclubsrm,">
+
     <link rel="icon" href="static/assets/favicon.ico" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,7 +40,7 @@
 
                 <ul class="secondary-nav">
                     <li class="github-cta">
-                        <a href="https://github.com/MLSA-SRM/profanity-filter-api" target="_blank" class="github-button">
+                        <a href="https://github.com/MLSA-SRM/CenSwear" target="_blank" class="github-button">
                             <img id='github-cta-logo' class="github-logo" src="static/assets/github-icon.svg" alt="Github logo"> Github
                         </a>
                     </li>
