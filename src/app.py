@@ -25,12 +25,8 @@ CLEAN_WORDLIST_URL = os.environ['CLEAN_WORDLIST_URL']
 filter_wordlist = []
 clean_wordlist = []
 
-def load_lists():
-    global filter_wordlist
-    global clean_wordlist
-    filter_wordlist = requests.get(FILTER_WORDLIST_URL).json()
-    clean_wordlist = requests.get(CLEAN_WORDLIST_URL).text.split()
-load_lists()
+filter_wordlist = requests.get(FILTER_WORDLIST_URL).json()
+clean_wordlist = requests.get(CLEAN_WORDLIST_URL).text.split()
 
 censor_symbols = '*'
 
@@ -131,7 +127,10 @@ def filter():
 @ app.route('/reload')
 def reload():
     try:
-        load_lists()
+        global filter_wordlist
+        global clean_wordlist
+        filter_wordlist = requests.get(FILTER_WORDLIST_URL).json()
+        clean_wordlist = requests.get(CLEAN_WORDLIST_URL).text.split()
         return "Reload Successful"
     except:
         abort(400)
