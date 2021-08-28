@@ -4,8 +4,6 @@ from dotenv import load_dotenv
 import random
 import re
 import requests
-from urllib.parse import unquote
-
 from flask import Flask, json, redirect, render_template, request, url_for, jsonify, abort
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
@@ -122,7 +120,9 @@ def filter():
     if not request.json or not 'text' in request.json:
         abort(400)
     string = request.json.get("text", "")
-    return jsonify({'result': filter_string(string)}), 200
+    response = jsonify({'result': filter_string(string)})
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    return response
 
 @ app.route('/reload')
 def reload():
@@ -136,4 +136,4 @@ def reload():
         abort(400)
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)
