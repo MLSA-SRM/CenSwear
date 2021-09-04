@@ -23,8 +23,8 @@ Check out the live site - [**CenSwear**](https://censwear.msclubsrm.in/)
 * ### Profanity detection and filtering from texts 
   * The API detects and censors swear words and profanities from chat and text messages based on an internal profanity list.
 
-* ### Bilingual
-  * We’ve designed CenSwear in a way that it detetcts profanities in both Hindi and English
+* ### Multilingual
+  * We’ve designed CenSwear in a way that it detetcts profanities in multiple languages
   
 * ### Real-time censoring of expletives
   * The web service also provides real-time redaction of swear words while emails and documents are being typed.
