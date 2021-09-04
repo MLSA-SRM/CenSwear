@@ -8,6 +8,7 @@ from flask import Flask, json, redirect, render_template, request, url_for, json
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from six import class_types
+import time
 
 
 
@@ -84,14 +85,14 @@ def censor(s, indices):
 
 def get_clean_indices(s):
     clean_indices = []
-    words = s.split()
-    words = list(set(words))
-    for i in words:
+    s = s.lower()
+    for i in clean_wordlist:
         if len(i) < 3:
             continue
-        if i.lower() in clean_wordlist:
-            for m in re.finditer(i.lower(), s):
+        if i in s:
+            for m in re.finditer(i, s):
                 clean_indices.extend(list(range(m.start(), m.end())))
+
     return clean_indices
 
 
@@ -100,7 +101,6 @@ def filter_string(s):
     s = first_run(s)
     s = second_run(s)
     s = third_run(s, base)
-    
     return s
 
 
