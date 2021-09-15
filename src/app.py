@@ -87,10 +87,8 @@ def get_clean_indices(s):
     clean_indices = []
     s = s.lower()
     for i in clean_wordlist:
-        if len(i) < 3:
-            continue
         if i in s:
-            for m in re.finditer(i, s):
+            for m in re.finditer(r"\b{}\b".format(i), s):
                 clean_indices.extend(list(range(m.start(), m.end())))
 
     return clean_indices
@@ -136,4 +134,4 @@ def reload():
         abort(400)
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)
