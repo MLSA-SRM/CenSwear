@@ -97,7 +97,7 @@ def get_clean_indices(s):
 def filter_string(s):
     base = s
     s = first_run(s)
-    s = second_run(s)
+    # s = second_run(s)
     s = third_run(s, base)
     return s
 
